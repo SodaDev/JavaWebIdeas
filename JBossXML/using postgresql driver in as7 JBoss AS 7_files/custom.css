@@ -1,0 +1,1316 @@
+@charset "UTF-8";
+/* custom-css */
+
+
+/* =GLOBAL
+--------------------------------------------- */
+
+body {
+	/*background:url(../../images/common/common-sprite.gif) no-repeat scroll 0 -57px #E6E7E8 !important;*/ /* added to override content.css in jive */
+	padding:0px !important;/* added to override content.css in jive */
+	font-family:"Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif !important;/* added to override content.css in jive */
+    }
+	
+/*.jive-rendered-content p {   added to override jive's default 0 margins to avoid needing blank p tags for breaks - 01/04/11
+	margin:0 0 1em 0;
+}*/
+
+#container_grey {
+	color:#333333; /* this is jive's default color which is darker than Magnolia's default */
+}
+
+#maincontent-wrapper {
+	margin: 0 5px;	
+}
+	
+.clearfix {  /* overrides the clearfix in styles.css */
+	height:auto;
+	width:auto; 
+	font-size:12px;
+}
+		
+h1, h2, h3, h4, h5, h6, h7 {
+	letter-spacing: -.04em;
+    font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	/*font-family: 'PT Sans', "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;*/ 
+	font-weight: normal;
+	display:block;
+}		
+		
+h1, h2, h3, #jive-body-intro h1 a {
+	color:#4a5d75;
+}
+
+h4, h5, h6, h7 {
+	color:#424242;
+}
+
+h1 {
+	font-size:27px;
+	text-shadow:2px 2px 2px #E7E6E6;
+	margin:6px 0;
+}
+h2 {
+	font-size:25px;
+	margin:5px 0;
+}
+h3 {
+	font-size:23px;
+	margin:4px 0;
+}
+h4 {
+	font-size:21px;
+	margin:3px 0;
+}
+h5 {
+	font-size:19px;
+	margin:2px 0;
+}
+h6 {
+	font-size:17px;
+	margin:1px 0;
+}
+h7 {
+	font-size:15px;
+	margin:0;
+}
+
+.jive-rendered-content h1 {
+	font-size:23px;
+}
+
+.jive-rendered-content h2 {
+	font-size:21px;
+}
+
+.jive-rendered-content h3 {
+	font-size:19px;
+}
+
+.jive-rendered-content h4 {
+	font-size:17px;
+}
+
+.jive-rendered-content h5 {
+	font-size:15px;
+}
+
+.jive-rendered-content h6 {
+	font-size:13px;
+}
+
+.jive-content-title h2 {
+	text-shadow: 2px 2px 2px #E7E6E6;	
+}
+
+
+/* override of H4 for grey header bars in boxes */
+
+.jive-box-header h4 {
+	margin-top: 0px;
+}
+
+.jive-widget-header h4 {
+	padding:5px 0 5px 8px;
+}
+
+.jive-box-header h4, .jive-sidebar-header h4, .jive-widget-header h4, .jive-widget-new .jive-widget-header h4 {
+	font-size: 1.3em;
+}
+		
+		
+/* =Project Branding STK */
+#top_subnav_branding #banner {
+	background-repeat:repeat-x; /* this repeats banners horizontally */
+	background-position:top left;	
+}
+
+#top_subnav_branding img {/* overrides styles.css for STK layout */
+	padding:0px; 
+	position:relative; 	/* remove this when we get id="project" on the body tag in sbs */
+	z-index:99;			/* remove this when we get id="project" on the body tag in sbs */
+}
+
+/* =MAIN CONTAINER
+--------------------------------------------- */
+#jive-wrapper {
+        /*width: 969px; liquid */ 
+		text-align:left; 
+		margin:0px auto; 
+        }
+
+#jive-body, #jive-body-full {
+        clear:both;
+        margin: 0px auto;
+        background-color:#FFFFFF;
+        /*width: 957px;  liquid */
+		min-width: inherit;
+        text-align: left;
+    }
+	
+	
+/* --------  = Hides login/register links in the userbar  ---------------- */
+
+.jive-userbar-login-loginlink,  .jive-userbar-login-new {
+		display: none;
+}
+
+.jive-userbar-login-guest {
+		background: none;
+}
+
+
+/* =JIVE USERBAR  (grey bar with 'Wiki search')
+--------------------------------------------- */
+#jive-userbar {
+        background: #EFEFEF;        
+        background-image:none;
+        border-bottom: dashed #d1d1d1 1px;
+        clear: both;
+        height: 44px;
+        position: relative;
+        /*z-index: 10; removed this to allow the SBS searchbox to appear  */
+        margin: 0px;
+        /*width: 957px; liquid */
+        text-align: left;
+        }
+		
+#proj-user-bar-wrapper #jive-userbar {
+        background:url(../../images/magnolia/bkg_dogearhangsbs.png) no-repeat scroll right top #EFEFEF;
+        }
+
+/*--hide Magnolia searchbox to replace with SBS searchbox --*/
+#proj_nav ul li#search-field {
+		display:none;
+}
+		
+/*--hide userbar on form pages --*/
+body.jive-body-formpage-login #jive-userbar, 
+body.jive-body-formpage-password #jive-userbar, 
+body.jive-body-formpage-register #jive-userbar {
+        display:none;
+        }
+
+#jive-userbar-search .jive-userbar-search-field {
+        margin-top:10px;
+        } 
+
+/*--Overflow managed on dropdowns ---*/
+.jive-userbar-menu ul li a {
+        max-width: 300px;
+        overflow: hidden;
+        }
+
+/*--DogEar ----*/
+.dogear {
+	position:absolute;
+	right: 0;
+	top: 0;
+}
+#project .overhang-sbs {
+	background:url(../../images/magnolia/bkg_dogearhangsbs_top.png) no-repeat scroll right top transparent;
+	height:140px;
+	position:relative;
+	right:5px;
+	top:0;
+	width:61px;
+	z-index:12; 
+}
+
+#proj-user-bar-wrapper #jive-userbar-search  {
+	margin-right:-20px;
+}
+#proj-user-bar-wrapper #jive-userbar-search  {
+	/*bottom:6px;*/
+	float:left;
+	/*position:absolute;*/
+	/*right:55px;*/
+	width:180px;
+	/*z-index:111;  this is one higher than proj_nav zindex */
+	margin-right: 10px; /* puts search box back where it should be 12/5/11 */
+    margin-top: 5px;	/* puts search box back where it should be 12/5/11 */
+}	
+
+#jive-userbar-search .jive-userbar-search-button {
+	background: url(../../images/common/common-sprite.gif) no-repeat 0 -554px;
+	height:17px;
+}
+
+#jive-userbar-search .jive-userbar-search-button:hover {
+	background-position:0 -554px;
+}
+
+/* =JIVE HEADER  (white bar with Red headers and breadcrumbs)
+--------------------------------------------- */
+#jive-breadcrumb {
+		background-color:#FFFFFF; 
+		}
+		
+
+#jive-body-intro {
+	   background-color:#FFFFFF;
+       background-image:url(../../images/sbs/hdr_border_gradient.gif);
+       background-position:center bottom;
+       background-repeat:repeat-x;
+       margin:0pt 0pt 15pt 0pt;
+       padding:10px 20px 0;
+       }
+       
+#jive-body-intro #jive-body-intro-content {
+		padding-bottom:11px;
+}
+
+/* this adds correct padding on the left of specific page */
+#jive-body-intro #jive-body-intro-content .jive-icon-socialgroup-big img{
+        padding-left:35px;
+        }
+
+.jive-body-intro-home #jive-body-intro-content h1 {
+       float:left;
+       }
+
+.jive-body-home-description {
+       float:left;
+       }
+
+#jive-body-intro .jive-body-intro-home p, .jive-body-intro-home #jive-body-intro-content p {
+       clear:right;
+       padding-top:10px;
+       padding-left: 0px;
+       color:#666666;
+       }
+
+
+#jive-body-intro h1 {
+	display: inline;
+       }
+
+#jive-body-intro h1.jive-icon-people-big a {
+        color:#CC0000;
+        }
+        
+
+.jive-body-home #jive-body-intro h1 {
+       font-size:20pt;
+       padding-left:0px;
+       }
+	   
+	   
+.jive-body-intro-profile h1 { /* this is to get rid of the strange vertical gradient that showed up */
+		overflow-x: visible;
+}
+
+
+#jive-body-intro p {
+       margin:0px 0px 0px 10px;
+	   display:inline;
+       }
+
+.jive-body-tabbar {
+	padding-top:10px;
+	}
+
+.jive-body-intro-profile .jive-body-tabbar , 
+.jive-body-intro-community .jive-body-tabbar {
+       margin-bottom: 10px;
+       }
+
+.jive-body-intro-home .jive-body-tabbar {
+       /*margin-bottom: -1px;*/
+       margin-left: 0px;
+       }
+
+.jive-body-intro-home #jive-body-intro-content {
+       padding-top: 15px;
+       }
+
+.jive-body-tabbar #jive-body-tabbar-links {
+        margin-right:14px;
+       }
+#jive-body-tabbar-links li {
+		padding:0px;
+}
+   
+#jive-body-tabbar-links a {
+       	padding:2px 16px;
+		margin:3px 0px;
+		border-right: 1px dotted #BBBBBB;
+       	}
+		
+#jive-body-tabbar-links li.jive-body-tabbar-links-title {
+		border-right:none;
+}
+
+#jive-body-tabbar-links a span {
+		border-right:none;
+		padding:0 0 3px 0;
+}	
+		
+#jive-body-tabbar-links li.jive-body-tabbar-links-last {
+		/*background: transparent url(/images/jive-div-vert-dotted-grey.gif) no-repeat scroll right center;*/
+		}
+		
+#jive-body-intro #jive-body-intro-content #jive-body-intro-main-hdr {
+       padding-bottom:20pt;
+       }
+
+.jive-body-intro-profile .jive-body-tabbar {
+       margin-left:0px;
+       }
+       	
+.jive-body-tabcurrent a {
+	background-position:right top;
+	}
+	
+.jive-body-tabcurrent {
+	background-position:left top;
+	}
+	
+.jive-body-tab-customizable {
+	background-position:right top;
+	}
+    
+/*-- this is move the tabs on Recent History page down to the horizontal rule --*/
+#jive-body-intro-main-hdr .jive-body-tabbar {
+        bottom:-28px;
+        }
+
+/* =FOOTER
+--------------------------------------------- */
+#jive-footer {
+        clear:both;
+        text-align:center;
+        color:#a1a1a1;
+        font-size:10px;
+        background-image:url(../../images/sbs/bkgblur_bottom.gif);
+        background-repeat:no-repeat;
+        background-position:top center;
+        background-color:#e6e7e8;
+        padding:6px 0px 6px 0px;
+        /*width:980px; liquid */
+        }
+    
+#jive-footer a {
+        color:#A1A1A1;
+        }
+.jive-footer-nav {
+        padding: 0 0 6px 0;
+        }
+.jive-footer-nav a {
+        padding:0px 0px;
+        }
+
+.jive-footer-nav p {
+        margin:0;
+        padding:1px;
+        }
+#footer-links a{
+        padding:0px 3px 0px 3px;
+        }
+        
+#jive-body #jive-footer {
+        margin-left:8px;
+        }
+#jive-footer {
+        border:none;
+        }
+
+
+/*-- Project Layout footer --*/
+#projsubnav_footer {
+		/*width:973px; liquid */
+}
+
+
+/* =TABLE STYLES
+--------------------------------------------- */
+.jive-table tr.jive-table-row-odd { 
+        background-color: #f4f3f3;
+        }
+
+.jive-table table thead th {
+        background: #DCDEDF;
+        border-bottom:none;
+        }
+.jive-table tr.jive-table-row-even {
+        background-color: #fff;
+        }
+
+.jive-table td.jive-table-cell-type, 
+.jive-table td.jive-table-cell-title, 
+.jive-table td.jive-table-cell-author, 
+.jive-table td.jive-table-cell-views, 
+.jive-table td.jive-table-cell-modified, 
+.jive-table td.jive-table-cell-subject, 
+.jive-table td.jive-table-cell-replies,
+.jive-table td.jive-table-cell-tags,
+.jive-table td.jive-table-cell-status,
+.jive-table td.jive-table-cell-avatar,
+.jive-table td.jive-table-cell-icon,
+.jive-table td.jive-table-cell-rating,
+.jive-table td.jive-table-cell-2,
+.jive-table td.jive-table-cell-activity,
+.jive-table td.jive-table-cell-date {
+        border-bottom:1px solid #e6e7e8;
+        } 
+
+
+
+/*---- modify tables for FIXED-WIDTH layout NOT liquid ---- 
+.jive-table-cell-title a{
+        max-width:550px;
+        overflow:hidden;
+        }
+.jive-table-cell-subject {
+        max-width:225px;
+        overflow:hidden;
+        }
+.jive-table td.jive-table-cell-subject a {
+        font-size:8pt;
+        }
+.jive-table td.jive-table-cell-author { 
+        padding-right:0px;
+        }
+.jive-table td.jive-table-cell-subject {
+        padding-right:0px;
+        }
+		*/
+
+/*---- modify RECENT CONTENT table for FIXED-WIDTH layout NOT liquid ---- 
+.jive-table-recentcontent .jive-table td.jive-table-cell-title a{
+       max-width:200px;
+       overflow:hidden;
+       }
+	   
+
+div.jive-table-activity {
+		padding:0px;
+		}
+div.jive-table-activity table {
+		padding:0px;
+		}
+.jive-table-activity tr.jive-table-row-even, .jive-table-activity tr.jive-table-row-odd, .jive-table-activity-full tr.jive-table-row-even td, .jive-table-activity-full tr.jive-table-row-odd td {
+		padding:10px;
+		}
+		
+.jive-table-activity tbody td.jive-table-cell-date {
+		padding:12px 10px;
+		}
+*/
+
+/* =WIDGET STYLES
+--------------------------------------------- */
+
+/*--News Widget--*/
+.jive-widget-rssfeed-entry-header span {
+        margin-top:4px;
+        }
+.jive-widget-rssfeed-entry {
+        padding:0pt 10px 0px;
+        }
+.jive-widget-rssfeed-entry-header a {
+        color:#4A5D75;
+        font-family:Helvetica, Georgia,serif;
+        font-size:11pt;
+        }
+.jive-widget-rssfeed-entry-header {
+        padding:3px 0pt 0px;
+        }
+.jive-widget-rssfeed-entry-body {
+        color:#666666;
+        font-size:8pt;
+        }
+#jive-widget-container_1 .jive-widget-body .jive-table .jive-table-cell-title {
+        max-width:180px;
+        overflow:hidden;
+        }
+		
+		
+/*--HTML Widget--*/
+.jive-html-text-widget {
+	padding: 10px;
+}
+
+.jive-widget-body .jive-html-text-widget ul li {
+	padding:1px 0px;
+}
+
+
+
+/* =WIDGET HEADERS
+--------------------------------------------- */
+.jive-widget .jive-widget-header {
+		/*background-color:transparent;*/
+}
+
+.jive-widget-header,
+.jive-box-header,
+.jive-sidebar .jive-sidebar-header {
+       /* background: url(../../images/sbs/contentblock-bg.png) repeat-x scroll center bottom;*/
+        position:relative;
+}
+
+.jive-widget-container-small .jive-widget-actions .jive-widget-header {
+        background-color:#E1EEF4;
+        background-image:none;
+		-moz-border-radius-topleft:6px;
+		-moz-border-radius-topright:6px;
+        }
+
+/* =ACTIONS WIDGET
+--------------------------------------------- */
+.link-permlink {
+  background:url(../../images/sbs/editoricons-sprite.png) no-repeat left top ; /* ico_permalink.png */
+  padding:2px 0 2px 20px;
+}
+
+.jive-link-printpreview, .jive-icon-print-preview {
+  background:transparent url(../../images/sbs/editoricons-sprite.png) no-repeat 0 -132px;/* icon_fullscreen_16x16.gif */
+}
+
+/* =DEVELOPER SPOTLIGHT WIDGET
+--------------------------------------------- */
+#developerspotlight {
+    /* 
+    Removed color background and replaced it with gradient for more consisten feel with CS
+    background-color:#E1EEF4;
+    */
+    
+    background-image:url(../../images/sbs/bkg_bluegradient.gif);
+    background-repeat: repeat-x;
+    padding:12px 12px;
+    }
+
+.developer_photo img {
+    border-width:0px;
+    border-style:none;
+    max-width:197px;
+    border:1px solid #94AEBD;
+
+    }
+    
+#developerspotlight hr {
+    border-color:#94AEBD -moz-use-text-color -moz-use-text-color;
+    border-style:dashed none none;
+    border-width:1px 0 0;
+    color:#E1EEF4;
+    }
+    
+#developerspotlight .country, .bio, .title {
+    font-weight:bold;
+    float:left;
+    padding-right:8px;  
+    }
+
+
+/* =HIDE TAB STYLES
+--------------------------------------------- */
+
+/* -- Disabled our overrides to hide the tabs. 
+
+#jive-documents-tab, 
+#jive-default-tab,
+#jive-discussions-tab,
+#jive-blogposts-tab,
+#jive-blog-tab { 
+        display:none;
+        }
+
+-- */
+
+
+/* --HIDES the "Projects" and "Groups" link in the right-col under "Your Stuff" 
+
+ul#jive-tab-item-sidebar-tab-list_profile-overview-content li#projects, li#groups {
+        display:none;
+        }
+-- */
+/* --HIDES the "Start a Discussion" link in the right-col under "Actions" -- */
+
+ul#ul_socialgroup-actions-tab #jive-link-createThread {
+        display:none;
+        }
+
+/* --pushes over the 'customize' link to above the arrow
+#jive-overviewcustom-tab span.jive-overview-customizable {
+        padding-left:65px;     
+        }
+-- */
+
+/* =HIDE LINKS IN JIVE HEADER AND DROPDOWN
+-------------------------------------------
+.jive-body-tabbar #jive-body-tabbar-links span {
+        background:none;
+        }
+
+.jive-userbar-menu .jive-link-thread,
+.jive-userbar-menu .jive-link-wiki,
+.jive-userbar-menu .jive-link-blog,
+.jive-userbar-menu .jive-link-wiki-draft,
+.jive-userbar-menu .jive-link-blog-draft {
+        display:none;
+        }
+
+.jive-link-discussion-small, 
+.jive-link-blog-small {
+        display:none;
+        }
+                                       
+li#discussions,
+li#blogposts,
+li#tasks {
+        display:none;
+        }
+ -- */
+
+/* =HIDE 'TASKS' LINK
+-------------------------------------------
+#tasks {
+        display:none;
+        }
+                                        -- */
+
+
+/* =HIDE BACKGROUND IMAGES
+--------------------------------------------- */
+
+#jive-userbar-right {
+        background-image:none; 
+        padding:0pt 20px 0pt 0pt;
+        }
+
+#jive-body-wrapper {
+        background-image:none; 
+        }
+
+
+
+/* =USER PROFILE POPUPS
+--------------------------------------------- */
+.jive-tooltip2,
+.jive-tooltip2-top,
+.jive-tooltip2-med,
+.jive-tooltip2-btm {
+        z-index:31;
+        }
+
+.jiveTT-note-user {
+        }
+                                                                            
+
+/* =V CARDS
+--------------------------------------------- */
+.vcard .department {
+		clear:both;
+	}
+
+
+/* =RE-COLOR HEADER BARS LIGHT BLUE
+--------------------------------------------- */
+#jive-blogadmin-nav-header {
+        background-color:#3B4E64;
+        color:#fff;
+        }
+
+#jive-blogadmin-nav {
+        background-color:#E1EEF4;
+        }
+
+#jive-blogadmin-nav-box div {
+        border: 1px solid #94AEBD;
+        }
+
+
+
+/* =RE-COLOR 'POSSIBLY ANSWERED'
+--------------------------------------------- */
+#jive-answer-bar h4 span.jive-answer-possiblyanswered {
+        color:#a22903;
+}
+
+
+
+/* =RE-COLOR SIDEBAR
+--------------------------------------------- */
+.jive-sidebar .jive-sidebar-body-actions, 
+.jive-sidebar .jive-sidebar-body-filter, 
+.jive-widget-container-small .jive-widget-actions { 
+        background-image:none;
+        background-color:#E1EEF4;
+        border: 0px solid #94AEBD;
+        }
+
+.jive-sidebar div.jive-sidebar-profile-nav {
+        border:none;
+        }
+
+
+/* =RE-COLOR ARTICLE background
+--------------------------------------------- */
+.jive-body-content-document .jive-content {
+		background-color:#FCFBFA;
+		border:1px solid #FCF1E6;
+		}
+		
+/* =Search */
+
+/*
+--------------------------------------------- 
+#search-field {
+    width: 140px; 
+    font: 10px Verdana, Helvetica, Arial, sans-serif; 
+    padding-left: 2px; 
+    }
+    
+#dropmenudiv {  
+    background-color:#E5F0F7;
+    color: #333333;
+    position: absolute;
+    z-index: 100;
+    padding: 4px 0px 4px 0px;
+    text-decoration:none;   
+    text-align: left; 
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:0px;
+    -moz-border-radius-topright:0px;
+    border-color:#94AEBD; 
+    border-width:1px; 
+    border-style:solid;
+    border-top:none;
+    font-family:Verdana,Helvetica,Arial,sans-serif;
+}
+    
+#dropmenudiv a {
+    width: 100%;
+    display: block;
+    text-indent: 3px;
+    margin:2px 0px 2px 0px;
+    padding: 2px 0px 2px 0px;
+    text-decoration: none;
+    color: #4A5D75;
+    font-size: 11px;
+    text-decoration: none;
+}
+#dropmenudiv a:hover {
+    color: #4262A1;
+    font-size: 11px;
+    background-color:#ffffff;
+    display:block !important;
+    font-style:normal;
+    white-space:nowrap;
+}
+#dropmenudiv a.selected {
+    color: #CC0000;
+}
+*/
+
+
+/* =Search results  */
+
+.jive-table td.jive-table-cell-2 {
+	width:580px;
+}
+.jive-pagination {
+	padding:7px 0 0;
+}
+.jive-content-list-options .jive-content-list-sort, .jive-content-list-options .jive-content-list-items-per-page {
+	margin-right:8px;
+	padding-right:8px;
+}
+#sub_nav {
+	z-index:31;
+}
+
+/* =Announcements Dialogue
+------------------------------------------------- */
+#jive-alert h5.jive-alert-title {
+	margin:0px;
+	padding-top:0px;
+	padding-right:10px;
+}
+
+.jive-alert-header .jive-alert-title a {
+	font-size: 11pt;
+}
+
+.jive-alert-header ul li {
+	padding:7px 0 0;
+}
+
+/* =Condensed Magnolia layout tweaks 
+------------------------------------------------- */
+#jive-people-results {
+	padding:5px;
+}
+
+
+/* Styles for Forums
+----------------------------------------------------- */
+
+#jive-body-maincol-forums { 
+	padding: 0 20px;
+}
+
+/*  - css to make the actions buttons horizontal - deprecated to make them stack
+
+#jive-action-sidebar-tab-list_thread-actions-tab li  { 
+	display: inline;
+	padding:2px 10px 5px auto;
+	clear:both;
+	list-style-type:none;
+	margin-right: 10px;
+	line-height:20px;
+}
+*/
+
+#jive-action-sidebar-tab-list_thread-actions-tab ul  { 
+	width: 450px;
+}
+
+#jive-action-sidebar-tab-list_thread-actions-tab li  { 
+	width: 153px;
+	float: left;
+}
+
+.jive-thread-post-subject-content h2, .jive-thread-post-subject-content h2 a {
+	margin: 0px !important;
+}
+
+#jiveviewthreadsform-filter {
+	width:100px;
+}
+
+.jive-table-markallread a {
+	/* Override color for the mark all as read link */
+	color:#336699
+}
+
+
+#jive-sidebar-bookmarkedby {
+	width: 450px;
+}
+
+#jive-sidebar-morelikethis {
+	float: right;
+	width: 450px;
+}
+
+.jive-thread-messages {
+	margin-bottom: 20px;
+}
+
+#jive_body_sidebarcol_singlecol .jive-box {
+	margin:0 20px 10px;
+	width: 445px;  /* added to make two columns */
+}
+
+.jive-box-actions, .jive-box-actions .jive-box-header {
+	background-color:#E1EEF4;
+	background-image:none;
+}
+
+#jive_body_sidebarcol_singlecol #jboss-jira-sidebar {
+	float: right;   /* Make it float:right only for singlecol */
+}
+
+/* =Single column override to make the right column remove the right padding to match width
+-------------------------------------------------------------------------------------- */
+#jive_body_sidebarcol_singlecol #jive-body-sidebarcol  {
+	padding:0;
+}
+
+/* ------------------------- Category lists -------------------------------------------- */
+
+
+.jive-communities-listing-category {
+	background-color:#E6E7E8;
+	background-image:none;
+	border-bottom: medium none;
+	color: #333333;
+	font-family: "Lucida Grande","Lucida Sans Unicode", Helvetica;
+	font-size:13px;
+	font-weight:bold;
+	height: 31px;
+}
+
+.jive-communities-listing-category td {
+	padding-left: 8px;
+}
+
+/* --------------------- Search field custom styles ---------------------------------------- */
+
+#jive-search-terms {
+	width: 65%;
+}
+
+/* --------------------  Wiki Help styles ----------------------------------------------- */
+
+.wikihelp-thread a {
+	font-family:Lucida Grande,Arial,Helvetica,sans-serif;
+	font-size:10px;
+	background:transparent url(../../images/sbs/editoricons-sprite.png) no-repeat 0 -66px;/* icon-wikihelp-16x16.gif */
+	float: right;
+	position:relative;
+	padding:2px 5px 3px 20px;
+	margin-top: 22px;
+}
+
+.wikihelp-doc a {
+	font-family:Lucida Grande,Arial,Helvetica,sans-serif;
+	font-size:10px;
+	background:transparent url(../../images/sbs/editoricons-sprite.png) no-repeat 0 -66px;/* icon-wikihelp-16x16.gif */
+	float: right;
+	position:relative;
+	padding:2px 75px 3px 20px;
+}
+
+.wikihelp-thread a:link { color:#0a77cb;}
+.wikihelp-thread a:hover { color:#0a77cb;}
+.wikihelp-thread a:visited { color:#0a77cb;}
+
+.wikihelp-doc a:link { color:#0a77cb;}
+.wikihelp-doc a:hover { color:#0a77cb;}
+.wikihelp-doc a:visited { color:#0a77cb;}
+
+.jive-editor-panel.jive-large-editor-panel {
+	clear: both;
+}
+
+#jive-post-title {
+	margin: 13px 106px 5px 0px;
+}
+
+#jive-post-title input, #jive-compose-title input {
+	width:95%;}
+	
+	
+/* --------------------  Dynamic Dropdown styles ----------------------------------------------- */
+#jive-choose-container-quick h3 {
+	margin:0px;
+}
+
+/* --------------------  FORM STYLES ----------------------------------------------- */
+
+.singlecolumn input, select {
+	width:90px;
+}
+
+/* --------------------  PRE STYLES ----------------------------------------------- */
+pre, code {
+  font-size:12px;
+  font-family: 'Droid Sans Mono',monospace !important;
+  color: #333333;
+}
+
+.jive-pre {
+  background-image: none;
+}
+
+/* ------------------------ Styling for Project Spaces on the main SBS page ---------------------------------- */
+
+.spaces_by_category dl {
+	float: left;
+	/*width: 320px; liquid */
+	width:100%;
+	padding:0 0 15px 5px;
+	margin-top:-5px;
+	background-color:#FAFAFA;
+}
+
+.spaces_by_category dt {
+	clear: left;
+	/*float: left; liquid */
+	/*width: 300px; liquid */
+	margin: 5px 0 10px -5px;
+	padding: 9px 5px;
+	border-top: 1px solid #E5E5E5;
+	border-bottom: 1px solid #E5E5E5;
+	font-weight: bold;
+	background-color:#FFF;
+	font-size:1.3em;
+	font-weight:normal;
+	color:#424242;
+}
+
+.spaces_by_category dd {
+	width: 300px;
+/*	margin-left: 20px; */
+	padding: 5px 5px 5px 10px;
+}
+
+.spaced_by_category .project-icon-med {
+	margin:0px;
+}
+
+.spaces_by_category a img {
+	padding-right: 4px;
+}
+
+.spaces_by_category ul {
+}
+	
+.spaces_by_category ul li {
+	list-style-type: none !important;
+}
+
+/* --------------------  Registration Wizard styles ----------------------------------------------- */
+.wizard-overlay {
+	display:none;
+}
+
+#edit_hover_box_container {
+	position: static;
+	padding:30px 0 20px 0;
+}
+
+.simpletablestyle {
+	width:100%;
+}
+.simpletablestyle tr:nth-child(2n) { /* this targets even rows in css3 for newer browsers to zebra-stripe*/
+	background-color:#F4F3F3;
+}
+
+#register-simple .cm-wizard {
+  display:none;
+}
+#register-simple #jive-body-intro {
+	display:none;
+}
+#register-simple #jive-body-main {
+	display:none;
+}
+
+.cm-intro ul.main-blocks li div div {
+	top:10px;
+}
+
+.jive-bridge-favicon { /* this shows the jive favicon next to the word "community" when chosing widgets to personalize your homepage */
+	display:none;
+}
+
+#edit_hover_box .jive-account-formblock label,
+#edit_hover_box .grey_buttons   {
+	font-weight:normal;
+}
+
+#edit_hover_box {
+	background-color: #eeeeee;
+	border-color: #DADADA;
+}
+
+#edit_hover_box .nav li {
+	color:#333333;
+}
+
+#edit_hover_box .nav li.active {
+	color:#931c01;
+}
+
+#edit_hover_box .nav li.heading {
+	color:#333333;
+}
+
+#edit_hover_box ul.nav {
+	padding-top:9px;
+}
+
+/* ----------------------- Profile page  ------------------------------------ */
+
+dl.jive-profile-extras dd {
+	float: left;
+	width: 450px;
+	margin-left: 0px;
+}
+
+/* ----------------------- Profile edit page -------------------------------- */
+
+
+table.jive-edit-profile input[type=text] {
+	width: 330px;
+}
+
+table.jive-edit-profile td textarea {
+	width:330px;
+}
+
+.jive-edit-profile select {
+	margin-bottom: 0px;
+}
+
+#newsletter-field-heading p { 
+	padding: 5px 0px 30px 0px;
+}
+
+#company-field-heading p { 
+	padding: 5px 0px 30px 0px;
+}
+
+#company-field-heading h3 { 
+	padding: 30px 0px 0px 0px;
+}
+
+#newsletter-field-heading h3 { 
+	padding: 30px 0px 0px 0px;
+}
+
+
+/* ---------------- ShareMe Link ------------------------------------ */
+
+#jboss-link-sharethis {
+	padding-left: 0px;
+	
+}
+
+#jboss-link-sharethis .stButton {
+	margin-left: 0px;
+}
+
+.jive-icon-list #jboss-link-sharethis span{
+	color: #4262A1;
+	font-family: 'Lucida Sans Unicode', 'Lucida Grande', Geneva, Verdana, Arial, sans-serif;
+	font-size: 12px;
+}
+
+#jboss-link-sharethis .stButton .chicklets {
+	padding-left: 22px;
+}
+
+/* ---------------- JIRA widget ------------------------------------ */
+#jboss-jira-messages div {
+  margin-top: 10px;
+}
+#jboss-jira-add-form-group {
+  width: 100%;
+  height: 20px;
+  padding-top: 10px;
+}
+#jboss-jira-add-link-group {
+  padding-top: 10px;
+  height: 20px;
+}
+.jboss-jira-issue-closed {
+  text-decoration: line-through;
+}
+#jboss-jira-remove-icon {
+  position: relative;
+  top: 2px;
+}
+#jboss-jira-add-input {
+  width: 50%;  
+}
+#jboss-jira-add-suggestions h5 {
+  font-size: 9pt;
+  font-weight: bold;
+  margin: 2px 0px 2px 7px;
+  padding: 0px;
+  text-align: left;
+}
+#jboss-jira-add-suggestions ul {
+  padding: 2px 0px 2px 0px;
+  margin: 0;
+}
+#jboss-jira-add-suggestions a {
+  text-decoration: none;
+}
+#jboss-jira-add-suggestions ul li.active a {
+  background-color: #3C78B5;
+  color: white;
+}
+.jboss-jira-add-suggestions-desc {
+  font-weight: normal;
+  padding-left: 5px;
+}
+
+.jboss-jira-suggestion-list-item-link {
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-position: 5px 3px;
+  display: block;
+  padding: 0.3em 0.5em;
+  padding-left: 25px;
+}
+#jboss-jira-add-suggestions-box {
+  background-color: white;
+  border: 1px solid #BBBBBB;
+  max-height: 327px;
+  max-width: 370px;
+  text-align: left;
+  z-index: 5000;
+}
+
+.jboss-jira-add-suggestions-boxthread {
+    max-width: 439px !important;
+}
+
+/* -------------- People lists (for Opera which is not displaying content) ------------------ */
+
+.jive-people-list li, .jive-person-list li{
+	display:block;	
+	margin-left: -3px; /* gives room to the crown when avatar is floated LEFT */
+	padding-left: 3px; /* gives room to the crown when avatar is floated LEFT */
+}
+
+
+/* ---------------- Award labels (crown) ------------------------------------ */
+.jboss-award-labels, .jboss-award-labels div {
+  position: absolute;
+  overflow: visible;
+  padding: 0 !important;
+  z-index:9;
+}
+.jboss-award-labels .label-size-46 {
+  background: url(../../images/sbs/nobles_sprite.png) no-repeat scroll 0 -49px transparent;
+  height: 16px;
+  width: 22px;
+  left: -6px;
+  top: -6px;
+  position: relative;
+}
+.jboss-award-labels .label-size-32 {
+  background: url(../../images/sbs/nobles_sprite.png) no-repeat scroll 0 -80px transparent;
+  height: 14px;
+  width: 20px;
+  left: -3px;
+  top: -3px;
+  position: relative;
+}
+.jive-discussion .jboss-award-labels .label-size-32, .jive-comment .jboss-award-labels .label-size-32 {
+  left:-53px;	
+}
+.jboss-award-labels .label-size-22, .jboss-award-labels .label-size-24 {
+  background: url(../../images/sbs/nobles_sprite.png) no-repeat scroll 0 -104px transparent;
+  height: 12px;
+  width: 12px;
+  left: -3px;
+  top: -3px;
+  position: relative;
+}
+
+#jboss-profile-awards {
+  clear: both;
+  float: left;
+  margin: 5px 0 0 5px;
+}
+.jboss-profile-award {
+  float: left;
+	padding-right: 10px;
+}
+.jboss-common-award {
+  background: url(../../images/sbs/nobles_sprite.png) no-repeat scroll 0 0 transparent;
+  height: 32px;
+  width: 32px;
+}
+#jive-thread-messages-container div.jboss-award-labels {
+  margin: 19px 0 0 39px;
+}
+.jive-people-results-member div.label-size-24 {
+	display: none;
+}
+
+
+
+/* =STK width styles */
+#jive-body-layout-ls .jive-body-layout-l .jive-widget-container-large {
+	
+}

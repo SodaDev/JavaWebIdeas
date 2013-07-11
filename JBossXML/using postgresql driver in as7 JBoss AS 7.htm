@@ -1,0 +1,2116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0041)https://community.jboss.org/thread/168644 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>using postgresql driver in as7 | JBoss AS 7 | JBoss Community</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"> 
+
+<script type="text/javascript" async="" src="./using postgresql driver in as7 JBoss AS 7_files/ga.js"></script><script type="text/javascript">
+    if (top != self) {
+        var isSafeTopUrl = false;
+        try {
+            var topUrl = top.location.href;
+            var topUrlQsIdx = topUrl.indexOf('?');
+            if (topUrlQsIdx > 0) {
+                topUrl = topUrl.substring(0, topUrlQsIdx);
+            }
+            topUrl = topUrl.toLowerCase();
+
+            var safeTopUrls = new Array(
+                'https://community.jboss.org/skin-basic.jspa',
+                'https://community.jboss.org/skin-advanced.jspa',
+                'https://community.jboss.org/skin-advanced!UploadSkinZip.jspa',
+                'https://community.jboss.org/skin-palette.jspa',
+                'https://community.jboss.org/skin-palette!start.jspa'
+            );
+            for (var i = 0; i < safeTopUrls.length; i++) {
+                if (safeTopUrls[i].toLowerCase() == topUrl) {
+                    isSafeTopUrl = true;
+                    break;
+                }
+            }
+        } catch (err) {
+        }
+        if (!isSafeTopUrl) top.location = location;
+    }
+</script>
+
+
+<meta http-equiv="Content-Language" content="en-US">
+<meta name="keywords" content="">
+
+<link rel="search" href="https://community.jboss.org/opensearch.xml" title="Community" type="application/opensearchdescription+xml">
+
+
+<link rel="Shortcut Icon" href="https://www.jboss.org/dms/content/common/icons/favicons/jbossas_icon_16x">
+
+    <!-- Google Analytics part -->
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(
+        ['_setAccount', 'UA-10980360-1'],
+        ['_trackPageview']
+        ,['b._setAccount', 'UA-16109419-5']
+        ,['b._setDomainName', 'jboss.org']
+        ,['b._trackPageview']
+      );
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+    
+
+
+    <script type="text/javascript">
+        (function() {
+            var prepareUrl = function(url) {
+                if (url.indexOf(";") > 0) {
+                    url = url.substring(0, url.indexOf(";"));
+                }
+                if (url.charAt(url.length - 1) == '/') {
+                    url = url.substring(0, url.length - 1);
+                }
+                return url
+            };
+            if (typeof(window._jive_base_url) == "undefined") {
+                window._jive_base_url = prepareUrl("/")
+            }
+            if (typeof(window._jive_resource_url) == "undefined") {
+                window._jive_resource_url = prepareUrl("https://community.jboss.org/4.5.6/")
+            }
+                if (typeof(window._jive_current_user) == "undefined") {
+                    window._jive_current_user = {
+                        anonymous: true,
+                        username: 'ANONYMOUS',
+                        ID: '-1',
+                        enabled: true,
+                        avatarID: '-1',
+                        displayName: ''
+                    };
+                }
+
+
+
+        })();
+
+        var _jive_effective_user_id = "-1";
+        var _jive_auth_token ="no-user";
+        var _jive_locale = "en_US";
+
+    </script>
+
+
+<script type="text/javascript">
+/* Kongregate Asychronous JavaScript Loader
+
+The MIT License
+
+Copyright (c) 2010 Kongregate Inc.
+*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
+</script>
+
+    
+      
+      
+    <script type="text/javascript">
+        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
+        window.CS_BASE_URL = "";
+        window.CS_RESOURCE_BASE_URL = "https://community.jboss.org/4.5.6";
+        window.tinyMCEPreInit = {
+            suffix : "_src",
+            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
+        };
+        if (typeof(_jive_project_i18n) == "undefined") {
+            var _jive_project_i18n = new Array();
+            _jive_project_i18n['project.calendar.task'] = "Task";
+            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
+            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
+            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
+            _jive_project_i18n['global.edit'] = "Edit";
+            _jive_project_i18n['global.delete'] = "Delete";
+            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
+            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
+            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
+            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
+            _jive_project_i18n['project.task.create.link'] = "Create a task";
+        }
+    </script>
+     
+
+
+
+
+    
+
+
+
+    
+<script type="text/javascript">
+kjs.run(function() {
+kjs.load('https://community.jboss.org/4.5.6/resources/scripts/gen/1d641611ff1713092eb36fed0406768f.js', [  ]);
+kjs.run(function() {
+        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
+
+
+}, [ 'https://community.jboss.org/4.5.6/resources/scripts/gen/1d641611ff1713092eb36fed0406768f.js' ], [ 'Zapatec.Calendar' ]);
+}, [ 'Zapatec.Calendar--required' ]);
+</script>
+    
+    <script type="text/javascript">
+        var profileShortUrl = "/profile-short.jspa";
+        var profileLoadingTooltip = "Loading user profile";
+        var profileErrorTooltip = "There was an error loading that profile information.";
+
+        var projectChooserUrl = "/project-chooser!input.jspa";
+
+        var containerShortUrl = "/container-short.jspa";
+        var containerLoadingTooltip = "Loading place information.";
+        var containerErrorTooltip = "There was an error loading that place information.";
+
+        var videoShortUrl = "/view-video-short.jspa";
+        var videoLoadingTooltip = "video.tooltip.loading";
+        var videoErrorTooltip = "video.tooltip.error";
+        var _jive_video_picker__url = "?container=2279&containerType=14";
+        var followErrorMessage = "An internal error occurred while following the project or space.";
+
+        (function() {
+            var originalWrite = document.write;
+            document.write = function() {
+                if(typeof $j != 'undefined' && $j.isReady) {
+                    console.warn("document.write called after document was loaded: ", arguments);
+                }
+                else {
+                    // In IE before version 8 `document.write()` does not
+                    // implement Function methods, like `apply()`.
+                    return Function.prototype.apply.call(originalWrite, document, arguments);
+                }
+            }
+        })();        
+    </script>
+
+
+
+
+
+    <link rel="stylesheet" href="./using postgresql driver in as7 JBoss AS 7_files/jive-global.css" type="text/css" media="all">
+    <!-- <link rel="stylesheet" href="/styles/jive-icons-legacy.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="./using postgresql driver in as7 JBoss AS 7_files/jive-icons.css" type="text/css" media="all">
+
+        <link rel="stylesheet" href="./using postgresql driver in as7 JBoss AS 7_files/wiki-plugin.css" type="text/css" media="all">
+        <link rel="stylesheet" href="./using postgresql driver in as7 JBoss AS 7_files/quick-templates.css" type="text/css" media="all">
+
+
+
+
+    <!--[if IE 6]>
+    <style type="text/css">
+    /* hack for IE6's lack of alpha PNG support */
+    #jive-wrapper .ie6png {
+        filter: expression(function(e){
+            e.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" +
+                (e.tagName=='IMG' ? e.src : e.currentStyle.backgroundImage.split('\"')[1]) + ")",
+            e.runtimeStyle.backgroundImage = "none",
+            e.src = "/images/transparent.png"
+        }(this));
+    }
+    </style>
+
+    <link rel="stylesheet" href="https://community.jboss.org/4.5.6/styles/jive-icons-ie.css" type="text/css" media="all" />
+    <![endif]-->
+
+
+<script type="text/javascript" src="./using postgresql driver in as7 JBoss AS 7_files/83802532540423d78758955cb0d34feb.js"></script>
+<script type="text/javascript">
+        // begin list of custom CSS
+        jive.rte.defaultStyles = new Array();
+            jive.rte.defaultStyles.push("/plugins/wiki/resources/wiki-plugin.css");
+            jive.rte.defaultStyles.push("/plugins/quicktemplates-plugin/resources/styles/quick-templates.css");
+        // end list of custom CSS
+
+
+            var jiveControl = new jive.model.Controller();
+            jive.rte.mobileUI = false;
+
+
+if (dwr == null) var dwr = {};
+if (dwr.engine == null) dwr.engine = {};
+if (DWREngine == null) var DWREngine = dwr.engine;
+
+dwr.engine._origScriptSessionId = "0A33C8AA8B441B101CE5006D379E9EDE";
+dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
+dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
+dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
+dwr.engine._defaultPath = "/dwr/interface";
+dwr.engine._pollWithXhr = "false";
+
+
+    (function() {
+        var options = {
+            friendsRange : 20,
+            everyoneRange : 20,
+            youUsername : 'ANONYMOUS',
+            youID : -1,
+            isGuest : true
+        };
+
+        var i18n = {
+            acclaimLikingLike : "Like",
+            acclaimLikingUnlike : "Liked",
+            acclaimLikedNone : "None",
+            acclaimLikingLiked : "Person Liked This",
+            acclaimLikingLikedPlural : "People Liked This",
+            acclaimPeopleLiked : "People who liked this",
+            acclaimLikedYou : "You",
+            acclaimLikedFriends : "Friends",
+            acclaimLikedEveryone : "Everyone Else",
+            globalMore : "More",
+            globalClose : "Close"
+        };
+
+        new jive.Acclaim(options, i18n);
+    })();
+
+
+        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
+                profileErrorTooltip);
+        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
+        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
+                containerLoadingTooltip, containerErrorTooltip);
+        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
+                videoErrorTooltip);
+
+        var jiveFollow = new jive.Follow(followErrorMessage);
+
+
+</script>
+
+
+<script type="text/javascript" src="./using postgresql driver in as7 JBoss AS 7_files/24f2062673d9f083d3c91ec73ddd6fc3.js"></script>
+<script type="text/javascript">
+    window.errorHandlerMessage = "An error occurred:";
+
+    window.editorErrorHandler = function(message, exception) {
+        // if the message is something other than a timeout, show the message plus the error code
+        if (message.indexOf('Timeout') == -1) {
+            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
+            $j('#dwr-error-table').fadeIn();
+            setTimeout(function() {
+                $j('#dwr-error-table').fadeOut();
+            }, 10000);
+        }
+    };
+
+
+    
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+
+
+        window.RawHTMLSaveFunction = function(element_id, html, body){
+            var text = $j('#wysiwygtext');
+            if (text.is(':not(:visible)')) {
+                return html;
+            }else{
+                return text.val();
+            }
+        }
+        jive.rte.multiRTE = new Array();
+
+        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
+        window.refreshLinks = function() {
+            jive.rte.multiRTE.forEach(function(rteID) {
+                if ($j('#' + rteID + '_parent').length < 1) {
+                    // safari 2, text only
+                    $j('#' + rteID + '_toggle_html').hide();
+                    $j('#jivePreferredEditorModeLinkHREF').hide();
+                    return;
+                }
+
+                if(currentMode == 'rawhtml') {
+                    $j('#' + rteID + '_toggle_html').css('display', 'block');
+                }else{
+                    $j('#' + rteID + '_toggle_html').hide();
+                }
+
+                if (preferredMode == currentMode) {
+                    $j('#jivePreferredEditorModeLinkHREF').hide();
+                } else {
+                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
+                }
+            });
+        }
+
+    window.editor = new jive.ext.y.HashTable();
+
+
+       
+jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("wiki","","TEXT", false, true, [], [], true,true));
+
+
+
+</script>
+<script type="text/javascript" src="./using postgresql driver in as7 JBoss AS 7_files/89f8de81e5ee42ccd4a286854a7d5109.js"></script>
+<script type="text/javascript">
+        $j(function() {
+      $j('.jive-shared-list-toggle').click(function() {
+        $j('.jive-shared-list-short').toggle();
+        $j('.jive-shared-list-all').toggle();
+                                return false;
+      });
+        });
+
+
+        var _editor_lang = "en";
+        var _jive_video_picker__url = "?container=2279&containerType=14";
+
+
+    
+    function toggleFeatured() {
+
+        ToggleFeatured.toggleFeatured(1, 168644, 2279, 14, {
+            callback:function(featured) {
+
+                if (featured) {
+                    $j('#featured-toggle-unfeature').show();
+                    $j('#featured-toggle-feature').hide();
+                } else {
+                    $j('#featured-toggle-unfeature').hide();
+                    $j('#featured-toggle-feature').show();
+                }
+
+
+
+                Jive.AlertMessage('content-featured-notify', {
+                    beforeStart:function() {
+                        if (featured) {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
+                           
+                        } else {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+
+        /*********************************************
+         * autosave settings and initialization for discussion/question replies
+         *********************************************/
+        (function(){
+                window.autoSave = new DummyAutoSave(false);
+        })();
+        /*********************************************
+         * done setting up autosave
+         *********************************************/
+        (function() {
+            var options = {
+                draftExists:        false,
+                isModerated:        false,
+                isThreaded:         false,
+                resourceType:       1,
+                resourceID:         168644,
+
+                containerType:      14,
+                containerID:        2279,
+
+                listAction:         "/comment-list.jspa",
+                resourceVersionID:  -1,
+
+                preferredMode:      'advanced',
+                currentMode:        'advanced',
+                rteDisabledBrowser: false,
+                isAnonymous:        true,
+
+                question:           false,
+                imagesEnabled:      false,
+                rteOptions : {
+                    controller    : jiveControl,
+                    preset        : "mini-w-quote",
+                    autoSave      : autoSave,
+                    preferredMode : "advanced",
+                    startMode     : "advanced",
+                    mobileUI      : false,
+                    toggleText    : 'Show Full Editor',
+                    alwaysUseTabText : 'Always use this editor',
+                    editDisabledText : 'You are using a device that only enables you to add content.',
+                    editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
+                    communityName : 'Community',
+                    height        : 300,
+                    _imagePickerUrl : "/post!imagePicker.jspa?containerType=14&container=2279&message=612336&postedFromGUIEditor=true&reply=true",
+                    _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
+                },
+                i18n: {
+                    postSuccessText:         'Your message was posted successfully.',
+                    postErrorText:           'An error occurred while trying to submit your post. Please try again.',
+                    forumThrdReplyTo:        'Reply to',
+
+                    // Question text for discussions-question.soy
+                    questionNotAnswered:     'This question is {0}Not Answered.{1}',
+                    markQuestionAsAssumedAnswered: '{0}{1}Mark as assumed answered{2}{3}',
+                    questionAssumedAnswered: 'This question is {0}Assumed Answered.{1}',
+                    questionAnswered: 'This question has been {0}Answered.{1}',
+                    correctAnswer: 'Correct Answer',
+                    helpfulAnswer: 'Helpful Answer',
+                    helpfulAnswers: 'Helpful Answers',
+                    byWord: 'by&nbsp;',
+                    onWord: '&nbsp;on&nbsp;',
+                    leftParen: '(',
+                    rightParen: ')',
+                    unmarkAsCorrectAnswer: 'Unmark as Correct',
+                    unmarkAsHelpfulAnswer: 'Unmark as Helpful',
+                    seeAnswerInContext: 'See the answer in context',
+                    seeThisAnswer: 'See this answer',
+                    allHelpfulAnswersAwarded: 'You\'ve awarded all available Helpful Answers',
+                    oneHelpfulAnswerLeft: 'You have {0} more Helpful answer to award.',
+                    someHelpfulAnswersLeft: 'You have {0} more Helpful answers to award.',
+                    postUserWroteLabel: '{0} wrote',
+                    postGuestWroteLabel: 'Guest wrote',
+                    formSubmitPleaseWait:'Please Wait ...',
+                    postReplyMustBeApprvdText:'Please note, your reply will need to be approved by a moderator before it is posted in the forum.',
+                    globalLoginRequired:'You are no longer logged in. Please {0}log in{1} to continue.',
+                    advEditor:'Use advanced editor'
+                }
+            };
+
+            // Create DiscusssionApp
+            var discussisons = new jive.DiscussionApp.Main(options);
+        })();
+
+
+/**
+ * jboss.JiraApp.JiraSource
+ *
+ * Model class that encapsulates the server interface for retrieving and
+ * updating 'jira' results for a specified object.
+ *
+ * To use create an instance of Jira and call the refreshIssues method
+ * with the object type and id of the piece of content you need related issues for
+ */
+
+/*extern jive $j */
+
+jive.namespace("JiraApp");
+
+/* Global variables for Jboss Jira */
+var jbossJiraApp;
+var jbossJiraView;
+var jbossJiraSource;
+var jiraJBossDWRtimeout = 20000; // 20 sec.
+var fadeAnimationLength = 300;
+var jiraBaseURL = "https://issues.jboss.org";
+var addIssueBoxValue = "";
+
+
+jive.JiraApp.JiraSource = function() {
+
+    /**
+     * refreshIssues(objectType, objectID)
+     * - objectType (int): the content type of the object to get similar results for
+     * - objectID (int): the id of the content object to get similar results for
+     *
+     * Retrieves similar results for the specified content object from the server and
+     * passes the results to the callback.
+     */
+    function refreshIssues(objectType, objectID) {
+        JiraManager.getRelatedIssues(objectType, objectID, {
+            callback: function(issues) {
+                if(issues != null && issues.length > 0) {
+                  jbossJiraView.addIssuesIDs(issues);
+                  jbossJiraSource.retrieveIssuesFromJIRA(issues);
+                } else {
+                  jbossJiraView.noRelatedIssues();
+                }
+            },
+            errorHandler:function(errorString, exception) {
+                jbossJiraView.displayError();
+            },
+            timeout: jiraJBossDWRtimeout
+        });
+
+        return this;
+    }
+    
+    /**
+     * Retrieve details about issues from JIRA
+     * - issues - List or Issues
+     */ 
+    function retrieveIssuesFromJIRA(issues) {
+        issues.forEach(function(issue) {
+          $j.ajax({
+            type: "GET",
+            url: jiraBaseURL + "/rest/api/2/issue/" + issue + "?fields=summary,issuetype,status",
+            dataType: "jsonp",
+            jsonp: "jsonp-callback",
+            jsonpCallback: "jbossJiraView.refreshIssuesData",
+            crossDomain: "true"
+          });
+        });
+    }
+
+    this.refreshIssues = refreshIssues;
+    this.retrieveIssuesFromJIRA = retrieveIssuesFromJIRA;
+};
+
+/**
+ * jboss.JiraApp.JiraView
+ *
+ * Handles rendering of results from a 'jira' call into the page
+ * by creating <li> elements in the <ul> container specified by the given
+ * containerID
+ *
+ * To use create an instance of MoreLikeThisView and pass in the id of the
+ * <ul> element in the page in which elements will be rendered.  Also, an
+ * appropriate message for displaying when there are no results found should
+ * be provided in the options as "noContentMessage"
+ */
+
+/*extern jive $j */
+
+jive.namespace("JiraApp");
+
+jive.JiraApp.JiraView = function(containerID, options) {
+    var noContentMessage    = options.noContentMessage,
+        errorMessage        = options.errorMessage,
+        objectType  = options.objectType,
+        objectID    = options.objectID,
+        forbiddenMessage = options.forbiddenMessage,
+        issueClosed = options.issueClosed,
+        containerSelector   = "#" + containerID,
+        issuesCount = 0;
+
+    /**
+     * refreshIssuesData(data)
+     * - data (JSON list): list of JIRA issues
+     */
+    function refreshIssuesData(data) {
+        var fields = data.fields;
+        var issueTypeID = fields.issuetype.id;
+        var statusID = fields.status.id;
+
+        var link = "<a href=\"" + jiraBaseURL + "/browse/" + data.key + "\" title=\"" + fields.summary + "\" target=\"_blank\">";
+        if (statusID == 6) {
+          link += "<span class=\"jboss-jira-issue-closed\">" + data.key + "</span>";
+        } else {
+          link += data.key;
+        }
+        link += "</a>";
+        
+        var row = "<td width=\"20px\"><span class=\"jira-icon jira-issuetype-" + issueTypeID + "\" title=\"" + fields.issuetype.name + 
+          "\"></span></td><td>" + link + 
+          "</td><td><span class=\"jira-icon jira-status-" + statusID + "\" title=\"" + fields.status.name + "\"></span>&nbsp;" + fields.status.name + 
+          "</td>";
+        $j("#issue-" + data.key).empty().append(row);
+
+        $j("#issue-" + data.key).fadeIn(fadeAnimationLength);
+    }
+
+    function displayError() {
+        $j(containerSelector).append("<tr><td>" + errorMessage + "</td></tr>");
+    }
+
+    /* 
+     * issues - list of JIRA issues.
+     * clearWidget - if true then widget is cleared before appending content. if null then it's desided if should be cleared or not.
+     */
+    function addIssuesIDs(issues) {
+        var rows = "";
+        if (issues != null) {
+            issues.forEach(function(issue) {
+                    rows += "<tr id=\"issue-" + issue + "\"><td colspan=\"4\">" + options.loadingJiraIssue + "</td></tr>";
+            });
+        }
+        
+        if (issuesCount == 0) {
+          $j(containerSelector).empty().append(rows);
+        } else {
+          $j(containerSelector).append(rows);
+        }
+        issuesCount += issues.length;
+    }
+    
+    function removeIssue(issue) {
+      if (!confirm(options.removeIssueQuestion)) {
+       return;
+      } 
+      $j("#jboss-jira-remove-parent-" + issue).empty();
+      issuesCount--;
+    
+      JiraManager.removeLink(objectType, objectID, issue, {
+        callback: function(result) {
+          if (result == "OK") {
+            $j("#issue-" + issue).fadeOut(fadeAnimationLength,function() { 
+              $j(this).remove();
+              jbossJiraView.checkIfNoIssues();
+            });
+          } if (result == "FORBIDDEN") {
+            jbossJiraApp.showMessage(forbiddenMessage, "error"); 
+          }
+        },
+        errorHandler:function(errorString, exception) {
+            jbossJiraApp.showMessage(errorMessage, "error"); 
+        },
+        timeout: jiraJBossDWRtimeout
+      });
+    }
+    
+    function checkIfNoIssues() {
+      if (issuesCount == 0) {
+        noRelatedIssues();
+      }
+    }
+    
+    function noRelatedIssues() {
+      var rows = "<tr><td colspan=\"5\">" + noContentMessage + "</td></tr>";
+      $j(containerSelector).empty().append(rows);
+    }
+    
+    function showPicker() {
+      addIssueBoxValue = $j("#jboss-jira-add-input").val();
+      $j.ajax({
+          type: "GET",
+          url: jiraBaseURL + "/rest/api/1.0/issues/picker.json?query=" + addIssueBoxValue + "&currentIssueKey=&showSubTasks=true&showSubTaskParent=true&currentProjectId=",
+          dataType: "jsonp",
+          jsonp: "jsonp-callback",
+          jsonpCallback: "jbossJiraView.refreshPicker",
+          crossDomain: "true"
+      });
+    }
+    
+    function refreshPicker(data) {
+      var suggestions = "";
+      var someData = false;
+      data["sections"].forEach(function(section) {
+        if (section["id"] == 'hs') {
+          suggestions += "<h5>" + options.sectionHs;
+        } else {
+          suggestions += "<h5>" + section["label"];
+        }
+        if (typeof section["sub"] != 'undefined') {
+          suggestions += "<span class=\"jboss-jira-add-suggestions-desc\">(" + section["sub"] + ")</span>";
+        }
+        suggestions += "</h5><ul id=\"" + section["id"] + "\">";
+
+        if (typeof section["issues"] == 'undefined') {
+          suggestions += "<li>" + section["msg"] + "</li>" + 
+            "<li>" + options.loginToJiraMessage + "</li>";
+        } else {
+          someData = true;
+          section["issues"].forEach(function(issue) {
+            suggestions += "<li><a class=\"jboss-jira-suggestion-list-item-link\" id=\"" + issue["key"] + "\" href=\"javascript:void(0)\" style=\"background-image: url(" + jiraBaseURL + issue["img"] + "); text-overflow: ellipsis; overflow-x: hidden; overflow-y: hidden; \" title=\"" + issue["key"] + " - " + issue["summaryText"] + "\">" + issue["keyHtml"] + " - " + issue["summary"] + "</a></li>";
+          });
+        }
+
+        suggestions += "</ul>";
+      });
+      
+      $j("#jboss-jira-add-suggestions").empty().append(suggestions);
+
+      if (someData) {
+        links = $j("#jboss-jira-add-suggestions a");
+        links.bind('click', function() { 
+          $j("#jboss-jira-add-input").val($j(this).attr("id"));
+          $j("#jboss-jira-add-suggestions-box").css("display", "none");
+        } );
+        links.hover(
+          function() { $j(this).parent().addClass("active"); },
+          function() { $j(this).parent().removeClass("active"); }
+        );
+      }
+      showPickerBox();
+    }
+    
+    function showPickerBox() {
+      pos = $j("#jboss-jira-suggestion-position").offset();
+      $j("#jboss-jira-add-suggestions-box").css({"left": pos.left + "px", "top": (pos.top + 5) + "px", "display": "block" });
+    }
+    
+    this.refreshIssuesData = refreshIssuesData;
+    this.displayError = displayError;
+    this.addIssuesIDs = addIssuesIDs;
+    this.removeIssue = removeIssue;
+    this.noRelatedIssues = noRelatedIssues;
+    this.checkIfNoIssues = checkIfNoIssues;
+    this.showPicker = showPicker;
+    this.refreshPicker = refreshPicker;
+    this.showPickerBox = showPickerBox;
+};
+
+/**
+ * jboss.JiraApp.Main
+ *
+ * JavaScript code to handle Related Issues
+ *
+ * This is the main entry point of the JiraApp.  This class acts as a
+ * controller.
+ *
+ */
+
+/*extern jive $j jiveToggleTab */
+
+jive.namespace("JiraApp");
+
+jive.JiraApp.Main = function(options) {
+    var objectType  = options.objectType,
+        objectID    = options.objectID,
+        containerID = options.containerID;
+
+    function renderResults() {
+        jbossJiraSource.refreshIssues(objectType, objectID);
+    }
+    
+    function addLinkClicked() {
+      hideMessage("error"); 
+      
+      $j("#jboss-jira-add-link-group").fadeOut(fadeAnimationLength / 2, function() {
+        $j("#jboss-jira-add-form-group").fadeIn(fadeAnimationLength / 2);
+        $j("#jboss-jira-add-input").focus();
+      });
+    }
+    /** 
+     * Show message.
+     * - kind - can be "error", "info", "warning"
+     */
+    function showMessage(text, kind) {
+      $j("#jboss-jira-message-" + kind).empty().append(text);
+      $j("#jboss-jira-message-" + kind).fadeIn(fadeAnimationLength);
+    }
+    function hideMessage(kind, callback) {
+      $j("#jboss-jira-message-" + kind).fadeOut(fadeAnimationLength, callback);
+    }
+    
+    function addIssueFired() {
+        var issue = $j("#jboss-jira-add-input").val();
+        var errorText = '';
+        if (issue == '') {
+          errorText = options.noText;
+        } else if (document.getElementById("issue-" + issue.toUpperCase()) != null) {
+          errorText = options.issueAlreadyLinked;
+        }
+
+        if (errorText != '') {
+          showMessage(errorText, "error");
+          $j("#jboss-jira-add-input").focus();
+          $j("#jboss-jira-add-suggestions-box").fadeOut(fadeAnimationLength / 2);
+          return;
+        }
+
+        JiraManager.addLink(objectType, objectID, issue, {
+            callback: function(result) {
+              if (result == "OK") {
+                showMessage("", "error");
+
+                issue = $j("#jboss-jira-add-input").val().toUpperCase();
+                issues = new Array(issue);
+                jbossJiraView.addIssuesIDs(issues, null);
+                jbossJiraSource.retrieveIssuesFromJIRA(issues);
+
+                resetAddForm();
+              } else {
+                if (result == "ISSUE_NOT_FOUND") {
+                  showMessage(options.issueNotFound, "error");
+                }
+                if (result == "ISSUE_CLOSED") {
+                  showMessage(options.issueClosed, "error");
+                }
+                if (result == "FORBIDDEN") { 
+                  showMessage(options.forbiddenMessage, "error");
+                }
+                $j("#jboss-jira-add-suggestions-box").fadeOut(fadeAnimationLength / 2);
+              }
+            },
+            errorHandler:function(errorString, exception) {
+              showMessage(options.errorMessage, "error"); 
+            },
+            timeout: jiraJBossDWRtimeout
+        });
+    }
+    
+    function resetAddForm() {
+        hideMessage("error");
+        addIssueBoxValue = "";
+        $j("#jboss-jira-add-input").val(addIssueBoxValue);
+        $j("#jboss-jira-add-form-group").fadeOut(fadeAnimationLength / 2, function() { $j("#jboss-jira-add-link-group").fadeIn(fadeAnimationLength / 2); } );
+        $j("#jboss-jira-add-suggestions-box").fadeOut(fadeAnimationLength / 2);
+    }
+    
+    /* *** Initialization *** */
+    jbossJiraView = new jive.JiraApp.JiraView(containerID,
+        { noContentMessage: options.noContentMessage, errorMessage: options.errorMessage, issueClosed: options.issueClosed,
+          objectType: objectType, objectID: objectID, forbiddenMessage: options.forbiddenMessage, 
+          loginToJiraMessage: options.loginToJiraMessage, removeIssueQuestion: options.removeIssueQuestion, 
+          removeIssueDesc: options.removeIssueDesc, loadingJiraIssue: options.loadingJiraIssue,
+          sectionHs: options.sectionHs });
+
+    jbossJiraSource = new jive.JiraApp.JiraSource();
+
+    $j(document).ready(function() {
+        renderResults();
+    });
+    this.addLinkClicked = addLinkClicked;
+    this.addIssueFired = addIssueFired;
+    this.resetAddForm = resetAddForm;
+    this.showMessage = showMessage;
+    this.hideMessage = hideMessage;
+};
+
+
+
+jbossJiraApp = new jive.JiraApp.Main({
+            objectType: 2,
+            objectID: 612336,
+            containerID: "jboss-jira-2-612336",
+            containerType: "thread",
+            noContentMessage: "No Related Issues",
+            loadingJiraIssue: "Loading JIRA details ...",
+            errorMessage: "Error occurred while communicating with JIRA",
+            forbiddenMessage: "You are not allowed to perform this operation",
+            noText: "Insert a valid JIRA Issue",
+            sectionHs: "Your recently visited issues",
+            issueAlreadyLinked: "Link to this JIRA Issue already exists",
+            issueNotFound: "Issue not found in JIRA or it's not public",
+            issueClosed: "Issue is closed. You need to reopen this issue in JIRA and edit it manually.",
+            loginToJiraMessage: 'No result? Try <a target="_blank" href="https://issues.jboss.org/login.jsp">login to JIRA</a> first.',
+            removeIssueQuestion: 'Are you sure you want to remove link to this issue?',
+            removeIssueDesc: 'Remove link to the related issue '
+        });
+
+
+</script>
+
+    
+    
+
+  <link rel="stylesheet" href="./using postgresql driver in as7 JBoss AS 7_files/jive-content.css" type="text/css" media="all">
+        <link rel="stylesheet" href="./using postgresql driver in as7 JBoss AS 7_files/jive-bridges.css" type="text/css" media="all">
+    
+
+            <link rel="alternate" type="application/atom+xml" title=" JBoss AS 7 Discussions Feed" href="https://community.jboss.org/community/feeds/threads?community=2279">
+
+        <link rel="alternate" type="application/atom+xml" title="Messages in &#39;using postgresql driver in as7&#39; Discussion Feed" href="https://community.jboss.org/community/feeds/messages?thread=168644">
+
+
+
+    <script type="text/javascript">
+        function updateMessageFromDraft(draft) {
+            // dwr can't deserialize Image so just send along the image ID's
+            draft.imageIDs = [];
+            for (var i = 0; i < draft.images.length; i++) {
+                draft.imageIDs[i] = draft.images[i].ID;
+            }
+            draft.images = [];
+
+            MessageCreate.updateImagesFromDraft(draft,
+            {
+                timeout: DWRTimeout, // 20 seconds
+                errorHandler: editorErrorHandler
+            });
+        }
+    </script>
+
+
+
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+        <link rel="canonical" href="https://community.jboss.org/thread/168644?start=0&tstart=0#612336">   
+
+
+
+    <!--[if IE 6]>
+        <style type="text/css">
+            .jive-modal-scrollto-container
+            {
+                width: 500px;
+            }
+        </style>
+        <script type="text/javascript">
+            $j(document).ready(function() {
+                if ($j.browser.msie && $j.browser.version < 7) {
+                    $j('.jive-modal-scrollto-container').removeClass('jive-modal-scrollto-container');
+                }
+            });
+        </script>
+    <![endif]-->
+
+
+
+
+<!-- JBoss.ORG common CSS --> 
+    <link rel="stylesheet" href="./using postgresql driver in as7 JBoss AS 7_files/styles.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="./using postgresql driver in as7 JBoss AS 7_files/org_common.css" type="text/css" media="screen">
+<!-- Custom.css - KEEP THIS BELOW all other stylesheets for ultimate overwrite -->
+    <link rel="stylesheet" href="./using postgresql driver in as7 JBoss AS 7_files/custom.css" type="text/css" media="screen">
+
+<link rel="stylesheet" type="text/css" href="./using postgresql driver in as7 JBoss AS 7_files/buttons-secure.css"></head>
+<body class="jive-body-content jive-body-content-discussion" id="project" onclick="if(stWidget.buttonClicked==false){stWidget.stopClosing=false;stWidget.openDuration=0;stWidget.stClose(100);}"><div id="dropmenudiv" style="display: none; position: absolute; left: 0px; top: 0px; width: 185px;"><div><a href="https://community.jboss.org/thread/168644#" context="0">Search the Community</a></div><div><a href="https://community.jboss.org/thread/168644#" context="1">Search Project Pages</a></div></div><div id="tabnav-panel" class="tabnav-closed"><div class="tabnavclearfix" id="tabnav">  <ul class="listclear">    <li class="current"> <span class="notch">&nbsp;</span> <a class="menu-title" href="http://www.jboss.org/">JBoss Community</a>      <ul class="level1">        <li class="leaf"><a href="http://planet.jboss.org/view/all">Blogs</a></li>        <li class="leaf"><a href="http://twitter.com/#!/jbossdeveloper">Tweets</a></li>        <li class="leaf"><a href="http://www.facebook.com/jboss">Facebook</a></li>        <li class="leaf"><a href="http://jboss.org/twitter">Twitter</a></li>        <li class="leaf"><a href="http://www.linkedin.com/company/jboss">LinkedIn</a></li>        <li class="leaf"><a href="http://vimeo.com/jbossdeveloper">Vimeo</a></li>        <li class="leaf"><a href="http://asylum.libsyn.com/">Asylum</a></li>        <li class="leaf"><a href="http://www.jboss.org/events">Events</a></li>      </ul>    </li>    <li class="current"> <span class="notch">&nbsp;</span> <a class="menu-title" href="http://www.jboss.org/developer">Get Started</a>      <ul class="level1">        <li class="leaf"><a href="http://devstudio.jboss.com/download/">Get Tool Kit (JBDS)</a></li>        <li class="leaf"><a href="http://www.jboss.org/projects">Downloads</a></li>        <li class="leaf"><a href="http://www.jboss.org/projects">Documentation</a></li>        <li class="leaf"><a href="http://community.jboss.org/">Forums</a></li>        <li class="leaf"><a href="http://www.jboss.org/webinars">Webinars</a></li>        <li class="leaf"><a href="http://java.dzone.com/category/tags/jboss">Articles</a></li>        <li class="leaf"><a href="http://www.jboss.org/books">Books</a></li>      </ul>    </li>    <li class="current"> <span class="notch">&nbsp;</span> <a class="menu-title" href="http://www.jboss.org/contribute">Get Involved</a>      <ul class="level1">        <li class="leaf"><a href="http://community.jboss.org/">Wiki</a></li>        <li class="leaf"><a href="http://community.jboss.org/">Discussions</a></li>        <li class="leaf"><a href="http://issues.jboss.org/">Issue Tracker</a></li>        <li class="leaf"><a href="http://source.jboss.org/">Source Repositories</a></li>        <li class="leaf"><a href="http://www.jboss.org/usergroups">User Groups</a></li>        <li class="leaf"><a class="menu-title" href="http://jboss.org/interests">Special Interest Groups</a></li>        <li class="leaf"><a href="http://www.jboss.org/security">Report a Security Issue</a></li>      </ul>    </li>    <li class="open"> <span class="notch">&nbsp;</span> <a class="menu-title" href="http://www.jboss.org/projects">Projects</a>      <ul class="level1">        <!--<li class="leaf alpha">A-O</li>-->        <li class="leaf"><a href="http://www.jboss.org/jbossas">Application Server</a></li>        <li class="leaf"><a href="http://www.jboss.org/jbossweb">Web Server</a></li>        <li class="leaf"><a href="http://www.jboss.org/gatein">GateIn</a></li>        <li class="leaf"><a href="http://www.jboss.org/jbossesb">ESB</a></li>        <li class="leaf"><a href="http://www.jboss.org/drools">Drools</a></li>        <li class="leaf"><a href="http://www.hibernate.org/">Hibernate</a></li>        <li class="leaf"><a href="http://www.jboss.org/richfaces">RichFaces</a></li>        <li class="leaf"><a href="http://www.jboss.org/tools">Tools</a></li>        <li class="leaf"><a href="http://www.jboss.org/rhq">RHQ</a></li>        <li class="leaf viewmore"><a href="http://www.jboss.org/projects">More...</a></li>      </ul>    </li><li class="open"> <span class="notch">&nbsp;</span> <a class="menu-title" href="http://www.jboss.org/products">Products</a>      <ul class="level1">        <li class="leaf"><a href="http://www.jboss.org/products/eap">Application Platform</a></li>        <li class="leaf"><a href="http://www.redhat.com/products/jbossenterprisemiddleware/web-server/">Web Server</a></li>        <li class="leaf"><a href="http://www.redhat.com/products/jbossenterprisemiddleware/data-grid/">Data Grid</a></li>        <li class="leaf"><a href="http://www.redhat.com/products/jbossenterprisemiddleware/portal/">Portal Platform</a></li>        <li class="leaf"><a href="http://www.redhat.com/products/jbossenterprisemiddleware/soa">SOA Platform</a></li>        <li class="leaf"><a href="http://www.redhat.com/products/jbossenterprisemiddleware/data-services">Data Services Platform</a></li>        <li class="leaf"><a href="http://www.jboss.org/products/fuse">Fuse</a></li>        <li class="leaf"><a href="http://www.jboss.org/products/amq">A-MQ</a></li>        <li class="leaf"><a href="http://www.redhat.com/products/jbossenterprisemiddleware/business-rules/">Business Rules Mgmt System</a></li>        <li class="leaf"><a href="https://www.jboss.org/products/jbds">Developer Studio</a></li>        <li class="leaf"><a href="http://www.redhat.com/products/jbossenterprisemiddleware/web-framework-kit">Web Framework Kit</a></li>        <li class="leaf"><a href="http://www.redhat.com/products/jbossenterprisemiddleware/operations-network">Operations Network</a></li>        <li class="leaf viewmore"><a href="http://www.jboss.org/products">More...</a></li>      </ul>    </li>        <li id="tabnav-search">      <form action="https://community.jboss.org/thread/168644#">      <input id="searchbar" type="text" value="" style="height:14px;">      </form>    </li>  </ul></div></div>
+
+
+<a href="https://community.jboss.org/thread/168644#jive-body" class="jive-skip-nav">Skip navigation</a>
+
+    <div id="jive-wrapper" class="clearfix">
+		<div id="wrapper">
+		  <div id="maincontent-wrapper"><!-- Added for STK layout 11/11/11 -->
+		
+			<!-- BRANDING -->
+<!-- JBoss.org SSO login info. It needs span or div with 'jbssologininfo' id to fill it with info -->
+<script type="text/javascript">
+  var jbssoserverbase = "https://sso.jboss.org";
+    var jbssobackurl = document.location.href;
+    if (document.location.hash.length > 0) {
+      jbssobackurl = jbssobackurl.replace(document.location.hash, "");
+    }
+  
+  var jbssologouturl = "https://community.jboss.org/logout.jspa";
+
+    /* SSO part is optimized by server */
+    var part1 = "<a href='" + jbssoserverbase + "/login?service=" + escape(jbssobackurl) +"'>Log In</a>";
+    var part2 = "<a href='https://community.jboss.org/register.jspa'>Register</a>";
+  var ssoData = {
+    part1 : part1,
+    part2 : part2
+  };
+
+</script>
+<!--#if expr='1<0' -->
+<div id="awestructnavwrapper">
+<div id="branding">
+  
+  <div id="logo"> 
+    <a href="http://www.jboss.org/" title="Homepage"> 
+      <strong>JBoss Community</strong>
+      <span></span>
+    </a> 
+  </div>
+  <!-- end logo -->
+<div id="primarynav">
+    <ul class="sf-menu sf-js-enabled">
+        <li id="primary-nav-home"> <a class="menu-title sf-with-ul" href="http://www.jboss.org/developer">Get Started</a></li>
+        <li id="primary-nav-getinvolved"> <a class="menu-title" href="http://www.jboss.org/contribute">Get Involved</a></li>
+        <li id="primary-nav-projects" class="current"> <a class="menu-title sf-with-ul" href="http://www.jboss.org/projects">Projects</a></li>
+        <li id="primary-nav-products" class="enterprise"> <a class="menu-title" href="http://www.jboss.org/products">Products</a></li>
+    </ul>
+</div><!-- END of primarynav -->
+
+<!-- Utility controls -->
+<div id="nav-meta">
+<ul>
+  <li id="jbssologininfo1"><a href="https://sso.jboss.org/login?service=https%3A//community.jboss.org/thread/168644">Log In</a>|</li>
+  <li id="jbssologininfo2"><a href="https://community.jboss.org/register.jspa">Register</a></li> 
+</ul>
+</div>
+<!-- end nav-meta --> 
+<a href="http://www.jboss.org/" class="tabnav-closed" id="tab">Search</a>
+
+<!-- JBoss.org SSO login info. It needs span or div with 'jbssologininfo' id to fill it with info -->
+<script type="text/javascript">
+//<![CDATA[ 
+   jbossorgheader = {
+
+     /* Highlight main header */ 
+     highlightMainNav: function() {
+       bodyTag = document.getElementsByTagName("body").item(0);
+       navitemId = "primary-nav-projects";
+       if ("community" == bodyTag.id) {
+         navitemId = "primary-nav-home";
+       } else if ("getinvolved" == bodyTag.id) {
+         navitemId = "primary-nav-getinvolved";
+       } else if ("products" == bodyTag.id) {
+		   navitemId = "primary-nav-products";
+	   }
+       jbossorgheader.highlightMainNavByNavId(navitemId);
+     },
+
+     highlightMainNavByNavId: function(navitemId) {
+       document.getElementById(navitemId).className = "current";
+     } 
+   }
+   jbossorgheader.highlightMainNav();
+
+  function setSSOInfo(data) {
+    if (data) {
+      document.getElementById("jbssologininfo1").innerHTML = data.part1 + "|";
+      document.getElementById("jbssologininfo2").innerHTML = data.part2;
+    }
+  }
+  
+  if (typeof jbssoserverbase == 'undefined') {
+    var jbssoserverbase='https://sso.jboss.org';
+  }
+  
+  if (typeof jbssologouturl == 'undefined') {
+    var jbssologouturl = '';
+  }
+  
+  if (typeof jbssobackurl == 'undefined') {
+    var jbssobackurl = document.location.href;
+    if (document.location.hash.length > 0) {
+      jbssobackurl = jbssobackurl.replace(document.location.hash, "");
+    }
+  }
+  
+  if (typeof ssoData != 'undefined') {
+    setSSOInfo(ssoData);
+  } else {
+    var sso = document.createElement('script'); sso.type = 'text/javascript'; sso.async = true;
+    sso.src = jbssoserverbase + "/logininfo?backurl=" + escape(jbssobackurl) +"&lourl="+ escape(jbssologouturl) + "&callback=setSSOInfo";
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(sso, s);
+  }
+//]]>
+</script>
+</div>
+</div><!-- end #branding -->
+<!--#endif -->
+<!--#include virtual="/theme/includes/org_header_topNav.html" -->			<!-- END BRANDING -->
+			
+<!-- BEGIN header -->
+
+
+<!-- Project banner -->
+  <div id="top_subnav_branding"><!-- Added for STK layout 11/14/11 -->
+	  <div id="banner">
+		<img src="./using postgresql driver in as7 JBoss AS 7_files/jbossas-banner-1180px.png" alt="JBoss AS 7">
+		<div id="proj_logo-neg"><h2>JBoss AS 7</h2></div>
+		<div style="z-index: 999; position: absolute; top: 0px; height:15px;">
+		</div>
+		
+		<div id="projectname">
+		  JBoss AS 7
+		</div>
+		
+		<div id="tagline">&nbsp;</div>
+	  </div>
+  </div>
+  <div style="clear: both;">
+
+<!-- Navigation menu -->
+
+<div id="top_subnav_branding"><!-- Added for STK layout 11/11/11 -->
+	<div id="proj_nav">
+	  <!-- JBoss.ORG Horizontal MENU -->
+	
+
+	<!-- END JBoss.ORG Horizontal MENU -->
+	</div>
+</div>
+<!-- END header -->
+
+		
+
+			<div id="wrapper-2"><!-- Added for STK layout 11/11/11 -->
+				<div id="wrap-content"><!-- Added for STK layout 11/11/11 -->
+				  
+					<div class="dogear"><!-- Added for STK layout 11/14/11 -->
+						<div class="overhang-sbs">&nbsp;</div>
+					</div>
+				
+					<!-- Moved here from above wrapper-2 for STK layout 11/11/11 -->
+<!-- BEGIN user bar -->
+<div id="proj-user-bar-wrapper">
+    <div id="jive-userbar">
+<div id="jive-userbar-login">
+    <form action="http://community.jboss.org/cs_login" method="post" name="loginform" autocomplete="off">
+        
+        
+
+        <span class="jive-userbar-login-welcome" id="jiveLoginWelcome">
+            <span class="jive-userbar-login-guest">
+            Welcome, Guest
+            </span>
+
+            <span class="jive-userbar-login-loginlink">
+                <a href="https://community.jboss.org/thread/168644#" onclick="jivetoggleLogin(); return false;">Login</a>
+            </span>
+
+            <span class="jive-userbar-login-new">
+                <a href="https://community.jboss.org/login!input.jspa?registerOnly=true">Register</a>
+            </span>
+        </span>
+
+        <span class="jive-userbar-login-form" id="jiveLoginForm" style="display: none;">
+
+            <span class="jive-userbar-login-username">
+                <label for="login-username">
+Username:                </label>
+                <a href="https://community.jboss.org/thread/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
+                <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1" id="login-username">
+            </span>
+
+            <span class="jive-userbar-login-password">
+                <label for="login-password">
+Password:                </label>
+                <a href="https://community.jboss.org/thread/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
+                <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2" id="login-password">
+            </span>
+
+            <span class="jive-userbar-login-auto">
+                <input type="checkbox" name="autoLogin" id="login-auto" value="true" tabindex="3">
+                <label for="login-auto">Remember Me</label>
+            </span>
+
+            <span class="jive-userbar-login-submit">
+                <input type="submit" name="login" value="Login" tabindex="4" class="jive-login-button">
+                <input type="reset" name="doCancel" value="Cancel" tabindex="5" class="jive-cancel-button" onclick="jivetoggleLogin();">
+            </span>
+        </span>
+
+    </form>
+</div>        <div id="jive-userbar-right">
+<div id="jive-userbar-search">
+    <form action="https://community.jboss.org/search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true">
+
+        <input type="hidden" name="userID">
+        <input type="hidden" name="containerType">
+        <input type="hidden" name="container">
+        <input type="hidden" name="spotlight" value="false">
+        <label for="jive-query" class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="jive-userbar-search-field" autocomplete="off">
+        <button type="submit" value="Search Tags" class="jive-userbar-search-button">Search</button>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+    <script type="text/javascript">
+        var containerType = 14;
+        var containerID = 2279;
+
+        $j('#jive-userbar-search-form').submit(function() {
+            var query = $j('#jive-query').val();
+            var isWildcard = query.charAt(query.length-1) == '*';
+            if (query && !isWildcard) {
+                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
+            }
+        });
+    </script>
+</div>        </div>
+    </div>
+
+</div>
+<!-- END user bar -->
+					
+					<div id="jive-body">
+			
+<!-- BEGIN breadcrumb -->
+<div id="jive-breadcrumb">
+
+    <span>
+                <a href="https://community.jboss.org/index.jspa">
+            Community</a> &gt; 
+                <a href="https://community.jboss.org/community/jbossas7">
+            JBoss AS 7</a> &gt; 
+
+
+        <a class="jive-breadcrumb-last" href="https://community.jboss.org/community/jbossas7?view=discussions">Discussions</a></span>
+</div>
+<!-- END breadcrumb -->
+			
+						                                                           
+
+
+
+    
+    <script>
+        window._jive_images_enabled = true;
+    </script>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="./using postgresql driver in as7 JBoss AS 7_files/window.css">
+
+
+
+
+    <div id="rte-template" style="display:none;">
+        <input type="hidden" name="jive.token.name" value="message.post.168644">
+        <input type="hidden" name="message.post.168644" value="[placeholder]">
+
+
+	<form action="https://community.jboss.org/post.jspa?container=2279&containerType=14&thread=168644&message=612336&reply=true" method="post" name="isInline" id="postform">
+	<input type="hidden" name="containerType" value="14">
+	<input type="hidden" name="container" value="2279">
+
+		<input type="hidden" name="thread" value="168644">
+
+		<input type="hidden" name="reply" value="true">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="inlinePost" value="true">
+  <input type="hidden" name="postedFromGUIEditor" id="postTypeFlag" value="false">
+
+	<div class="jive-error-message jive-error-box" id="dwr-error-table" style="display:none;">
+		<div>
+			<span class="jive-icon-med jive-icon-redalert"></span>
+			<span class="jive-error-text" id="dwr-error-text"></span>
+		</div>
+	</div>
+
+
+
+	<div class="jive-error-message jive-error-box" id="post-error-table" style="display:none;">
+		<div id="post-error-subject" style="display:none;">
+Please enter a title.		</div>
+		<div id="post-error-body" style="display:none;">
+You can not post a blank message. Please type your message and try again.		</div>
+	</div>
+	<input type="hidden" name="subject" size="75" maxlength="255" id="subject01" value="Re: using postgresql driver in as7">
+
+
+    <textarea name="body" rows="10" class="jive-comment-textarea"></textarea>
+
+
+  <div>
+    <input type="submit" name="post" class="jive-form-button-save" value="Add Reply">
+    <input type="button" name="cancel" class="jive-form-button-cancel" value="Cancel">
+  </div>
+  </form>
+</div>
+
+
+
+<!-- BEGIN header & intro  -->
+<div id="jive-body-intro">
+
+    <div id="jive-body-intro-content">
+
+        <a href="https://community.jboss.org/community/jbossas7?view=discussions&start=0"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>
+                Up to Discussions in&nbsp;JBoss AS 7
+        </a>
+    </div>
+</div>
+<!-- END header & intro -->
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main">
+
+<!-- BEGIN jboss.org move above MainBodyColumn on 8-26-10 -->
+    <!-- BEGIN sidebar column container -->
+    <div><!-- jboss.org mod on 8-26-10: removed here id="jive-body-sidebarcol-container" -->
+	
+	
+        <!-- BEGIN sidebar column -->
+        <div id="jive_body_sidebarcol_singlecol">
+        <script type="text/javascript">
+            function createDocFromThread() {
+                    document.location = '/thread-to-doc.jspa?thread=168644';
+            }
+        </script>
+        
+        
+
+<!-- BEGIN sidebar box 'JIRA' -->
+<div id="jboss-jira-sidebar" class="jive-box jive-sidebar">
+
+
+    <div class="jive-box-header jive-sidebar-header">
+        <h4>Related Issues</h4>
+    </div>
+    <div class="jive-box-body jive-sidebar-body jboss-sidebar-body-jira">
+        <table id="jboss-jira-2-612336" cellpadding="1px" border="0" width="100%"><tbody><tr><td colspan="5">No Related Issues</td></tr></tbody></table>
+        <div id="jboss-jira-messages">
+          <div id="jboss-jira-message-error" style="display: none;"></div>
+          <div id="jboss-jira-message-info" style="display: none;"></div>
+          <div id="jboss-jira-message-warning" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+<!-- END sidebar box 'JIRA' -->
+
+		
+
+<div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
+
+
+    <div class="jive-box-header">
+        <h4 id="jive-action-sidebar-tab-header_thread-actions-tab">Thread Actions</h4>
+    </div>
+    <div id="jive-action-sidebar-body" class="jive-sidebar-body jive-sidebar-body-actions jive-box-body">
+
+        <div id="jive-action-sidebar-tab-_thread-actions-tab" class="jive-action-sidebar-tab-first">
+
+
+
+            <ul id="jive-action-sidebar-tab-list_thread-actions-tab" class=" jive-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="jive-link-thread-print" style=""><a href="https://community.jboss.org/thread/168644?decorator=print&displayFullThread=true" rel="nofollow" onclick="" title="">
+<span class="jive-icon-med jive-icon-print-preview"></span>
+View full screen
+</a></li>
+
+
+
+
+                <li id="jboss-link-sharethis" style="">
+                        <span class="st_sharethis" displaytext="ShareThis" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton"><span class="chicklets sharethis">ShareThis</span><img src="./using postgresql driver in as7 JBoss AS 7_files/check-small.png" style="position: absolute; top: -6px; right: auto; width: 13px; height: 13px; max-width: 13px; max-height: 13px; display: none; left: 8px;"></span></span>
+                </li>
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+    </div>
+
+</div>
+		
+		
+    <!-- start jive social container -->
+        <!-- end jive social container -->
+
+
+
+        </div>
+        <!-- END sidebar column -->
+    </div>
+    <!-- END sidebar column container -->
+<!-- END jboss.org move above MainBodyColumn on 8-26-10 -->
+
+    <!-- BEGIN main body column -->
+    <div id="jive-body-maincol-container">
+        <div id="jive-body-maincol-forums"> 
+            <!-- moderation feedback message -->
+
+            <!-- hidden div used in parsing of ajax response to indicate that we have a moderated message -->
+            
+            <div id="success-moderation-edit" class="jive-success-box" style="display:none"></div>
+
+            <div id="thread.watch.notify" class="jive-info-box" style="display:none"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none"></div>
+
+
+
+
+
+            <!-- BEGIN thread messages -->
+            <div id="jive-thread-messages-container" class="jive-thread-messages">
+
+
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+
+                    <strong>     
+        
+            4700&nbsp;Views
+        
+
+</strong>
+                        <strong>4 Replies</strong>
+                    <a href="https://community.jboss.org/message/612559?tstart=0#612559">Latest reply</a>:
+                    Jun 29, 2011 11:15 AM by
+Oved Ourfali                        <span><a href="https://community.jboss.org/community/feeds/messages?thread=168644"><img class="jive-icon-sml jive-icon-rss" src="./using postgresql driver in as7 JBoss AS 7_files/transparent.png" alt="RSS"></a></span>
+
+
+
+
+                </div>
+                <!-- END thread info -->
+
+                <!-- BEGIN original thread post -->
+                 
+
+                    <div class="jive-thread-post">
+
+                        <a name="168644"></a><a name="612336"></a>
+                        <div class="jive-thread-post-body">
+
+                            <div class="jive-author">
+
+                                    <span class="jive-author-avatar-container">
+
+
+
+
+<a href="https://community.jboss.org/people/ovedwish" data-externalid="" data-username="ovedwish" data-avatarid="-1" class="jiveTT-hover-user" onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 83281, presence );" onmouseout="quickuserprofile.cancelTooltip();">
+    <img class="jive-avatar" src="./using postgresql driver in as7 JBoss AS 7_files/46.png" border="0" height="46" width="46" alt="Oved Ourfali"><span username="ovedwish" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="./using postgresql driver in as7 JBoss AS 7_files/statusicon-47.gif" alt="Newbie" title="Newbie"> </span>
+                                    </span>
+
+                                    <div class="jive-username-link-wrapper">
+<a href="https://community.jboss.org/people/ovedwish" data-externalid="" data-username="ovedwish" data-avatarid="-1" id="jive-83281116399266649430" onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 83281, presence );" onmouseout="quickuserprofile.cancelTooltip();" class="jiveTT-hover-user jive-username-link">Oved Ourfali</a>                                    </div>
+                                    <em>80 posts since <br>Mar 22, 2011</em>
+                            </div>
+
+                            <div class="jive-thread-post-body-container">
+                                <div class="jive-thread-post-subject">
+                                    <div class="jive-thread-post-subject-content">
+                                        <div class="jive-social-actions clearfix">
+                                        </div>
+
+                                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                                        <h3>Jun 28, 2011 9:35 AM</h3>
+                                        <h2><a href="https://community.jboss.org/message/612336#612336">using postgresql driver in as7</a></h2>
+                                    </div>
+                                </div>
+
+                                <div class="jive-thread-post-message">
+                                    <!-- [DocumentBodyStart:e7443d0a-574e-459d-b682-38ea19ca00cf] --><div class="jive-rendered-content"><p>Hello,</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p><span>I want to deploy the postgresql jdbc driver, so I downloaded a driver that supports jdbc4 from </span><a class="jive-link-external-small" href="http://jdbc.postgresql.org/download.html" rel="nofollow" target="_blank">http://jdbc.postgresql.org/download.html</a></p><p><span style="color: #333333;">(the version I used is <a class="jive-link-external-small" href="http://jdbc.postgresql.org/download/postgresql-9.0-801.jdbc4.jar" rel="nofollow">9.0-801 JDBC 4 )</a></span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>I added a datasource entry in standalone.xml, and also a driver entry there.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>On startup, I get the following errors:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>16:27:54,850 ERROR [org.jboss.as.server] Boot update failed: "Failed to load module for driver [org.postgresql.Driver]"</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>and afterwards:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>16:27:58,353 INFO&nbsp; [org.jboss.as.server] (MSC service thread 1-1) Service status report</p><p>&nbsp;&nbsp; New missing/unsatisfied dependencies:</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; service jboss.jdbc-driver.____________________________ (missing) required by [service jboss.data-source.java:/DataSource]</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p><span>I followed the manual in </span><a class="jive-link-external-small" href="https://docs.jboss.org/author/display/AS7/How+do+I+migrate+my+application+from+AS5+or+AS6+to+AS7" target="_blank">https://docs.jboss.org/author/display/AS7/How+do+I+migrate+my+application+from+AS5+or+AS6+to+AS7</a></p><p><span>and </span><a class="jive-link-external-small" href="http://community.jboss.org/docs/DOC-16657" target="_blank">http://community.jboss.org/wiki/DataSourceConfigurationinAS7</a></p><p>in order to add that jdbc driver.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>I made sure I have the META-INF/services/java.sql.Driver in the jar, and I put the jar in the deployments directory.</p><p>(Before trying version 9.0-801 I tried an older version that didn't contain the file above, so I used the manual to add the file, but it didn't help).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>Are you familiar with some kind of problem with the postgresql driver with AS7?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>A working postgresql-as7 configuration sample will be helpful.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>Thank you,</p><p>Oved</p></div><!-- [DocumentBodyEnd:e7443d0a-574e-459d-b682-38ea19ca00cf] -->
+
+
+                                </div>
+
+                            <!-- BEGIN content details -->
+                            <div id="discussion-action-div-baseDiscussionForm" class="jive-thread-post-details clearfix">
+
+                              <ul>
+                                    <li class="discussion-thread-acclaim">
+<div id="acclaim-container-2-612336-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-612336-" data-uniquekey="2-612336-" data-ratingtype="like" data-hasvoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="https://community.jboss.org/thread/168644#" id="jive-acclaim-likedlink-2-612336-" class=" jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+                              </ul>
+
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+    </span>
+    <!-- END view/add/edit tags -->
+                                </div>
+                                <!-- END content details -->
+
+                            </div>
+                        </div>
+                        <div class="jive-thread-ratings clearfix">
+        <div class="jive-content-rating clearfix" data-guid="L0J3BI5BR19EUG34XXDUF5S4VSAXUEIP">
+
+<script type="text/javascript">
+    $j(document).ready(function() {
+
+        var i18n = {
+            avgUserRatingTitlei18n : "Average User Rating",
+            avgUserRatingLabeli18n : "Average User Rating",
+            rateRatingLabel : "rating",
+            myRatingLabel : "My Rating:",
+            rateRatingsLabel : "ratings",
+            ratingSavingText : "Saving...",
+            rateSavedText : "Saved.",
+            rateRatingSaved : "Rating Saved!",
+            writeAReview : "Write a review",
+            commentOnRating : "Comment on your rating",
+            formSubmitPleaseWait:'Please Wait ...'
+        };
+
+        new jive.Rate(14, 2279, 1, 168644, 'thread', i18n, true, 'L0J3BI5BR19EUG34XXDUF5S4VSAXUEIP');
+    });
+
+</script>
+
+        <div class="jive-content-avgrating"><div class="jive-content-avgrating-title">Average User Rating</div><div class="jive-content-avgrating-score" title="Average User Rating: 0"><span class="jive-icon-avgrating-1 jive-icon-med jive-icon-rate-avg-off"></span><span class="jive-icon-avgrating-2 jive-icon-med jive-icon-rate-avg-off"></span><span class="jive-icon-avgrating-3 jive-icon-med jive-icon-rate-avg-off"></span><span class="jive-icon-avgrating-4 jive-icon-med jive-icon-rate-avg-off"></span><span class="jive-icon-avgrating-5 jive-icon-med jive-icon-rate-avg-off"></span></div><div class="jive-content-rating-print" style="display: none;">0</div><div class="jive-content-avgrating-count">(0 ratings)</div></div></div>
+                        </div>
+                    </div>
+                <!-- END original thread post -->
+
+
+    <!-- BEGIN reply -->
+
+
+    <ul class="jive-discussion-replies jive-discussion-flat jive-discussion-indent-0">
+    <li class="reply" id="discussion-612355">
+
+
+        <div id="thread-message-612355" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="612355">
+                <a name="612355"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+
+
+<a href="https://community.jboss.org/people/Juergen.Zimmermann" data-externalid="" data-username="Juergen.Zimmermann" data-avatarid="-1" class="jiveTT-hover-user" onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5878, presence );" onmouseout="quickuserprofile.cancelTooltip();">
+    <img class="jive-avatar" src="./using postgresql driver in as7 JBoss AS 7_files/46.png" border="0" height="46" width="46" alt="Juergen Zimmermann"><span username="Juergen.Zimmermann" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="./using postgresql driver in as7 JBoss AS 7_files/statusicon-51.gif" alt="Master" title="Master"> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="https://community.jboss.org/people/Juergen.Zimmermann" data-externalid="" data-username="Juergen.Zimmermann" data-avatarid="-1" id="jive-5878116399282943430" onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5878, presence );" onmouseout="quickuserprofile.cancelTooltip();" class="jiveTT-hover-user jive-username-link">Juergen Zimmermann</a>                        </div>
+                        <em>538 posts since <br>Jul 28, 2003</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="https://community.jboss.org/message/612355#612355" title="Link to reply #1" class="jive-thread-reply-num font-color-meta-light">1.</a>
+                        <span>Jun 28, 2011 10:59 AM</span>
+                            (<a href="https://community.jboss.org/message/612336#612336" title="Go to message" class="font-color-meta-light ">in response to Oved Ourfali</a>)
+                        </div>
+
+                        <strong>
+                        <a href="https://community.jboss.org/message/612355#612355">Re: using postgresql driver in as7</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:16700ac3-2695-4cd9-8315-7faaf5983b3a] --><div class="jive-rendered-content"><p>I'm using PG 9.1beta2, and the driver 9.1 since 2 or 3 weeks. There are no problems. What did you exactly do:</p><p>a) Deployment of the driver or provisioning as a module?</p><p>b) What exactly are your modifications in standalone.xml?</p></div><!-- [DocumentBodyEnd:16700ac3-2695-4cd9-8315-7faaf5983b3a] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-612355" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="https://community.jboss.org/message-abuse!input.jspa?objectID=612355&objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-612355-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-612355-" data-uniquekey="2-612355-" data-ratingtype="like" data-hasvoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="https://community.jboss.org/thread/168644#" id="jive-acclaim-likedlink-2-612355-" class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-612370">
+
+
+        <div id="thread-message-612370" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="612370">
+                <a name="612370"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+
+
+<a href="https://community.jboss.org/people/ovedwish" data-externalid="" data-username="ovedwish" data-avatarid="-1" class="jiveTT-hover-user" onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 83281, presence );" onmouseout="quickuserprofile.cancelTooltip();">
+    <img class="jive-avatar" src="./using postgresql driver in as7 JBoss AS 7_files/46.png" border="0" height="46" width="46" alt="Oved Ourfali"><span username="ovedwish" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="./using postgresql driver in as7 JBoss AS 7_files/statusicon-47.gif" alt="Newbie" title="Newbie"> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="https://community.jboss.org/people/ovedwish" data-externalid="" data-username="ovedwish" data-avatarid="-1" id="jive-83281116399296893430" onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 83281, presence );" onmouseout="quickuserprofile.cancelTooltip();" class="jiveTT-hover-user jive-username-link">Oved Ourfali</a>                        </div>
+                        <em>80 posts since <br>Mar 22, 2011</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="https://community.jboss.org/message/612370#612370" title="Link to reply #2" class="jive-thread-reply-num font-color-meta-light">2.</a>
+                        <span>Jun 28, 2011 12:52 PM</span>
+                            (<a href="https://community.jboss.org/message/612355#612355" title="Go to message" class="font-color-meta-light ">in response to Juergen Zimmermann</a>)
+                        </div>
+
+                        <strong>
+                        <a href="https://community.jboss.org/message/612370#612370">Re: using postgresql driver in as7</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:592a6231-d6ec-4404-9248-0e8e67de809b] --><div class="jive-rendered-content"><p>I used provisioning.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>I made the following modifications to standalone.xml:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>under datasources:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><table><tbody><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;datasource jndi-name="java:/DataSource" pool-name="DataSource" enabled="true" use-java-context="true"&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;connection-url&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">jdbc:postgresql://10.35.1.30:5432/db</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/connection-url&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;driver-class&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">org.postgresql.Driver</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/driver-class&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;driver&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">postgresql-9.0-801.jdbc4.jar</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/driver&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;transaction-isolation&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">TRANSACTION_READ_COMMITTED</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/transaction-isolation&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;pool&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;min-pool-size&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">1</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/min-pool-size&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;max-pool-size&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">100</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/max-pool-size&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;prefill&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">true</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/prefill&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;use-strict-min&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">false</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/use-strict-min&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/pool&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;security&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;user-name&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">postgres</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/user-name&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;password&gt;<p> password</p></td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/password&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/security&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;validation&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;validate-on-match&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">false</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/validate-on-match&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;background-validation&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">false</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/background-validation&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;useFastFail&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">false</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/useFastFail&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/validation&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;statement&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;prepared-statement-cache-size&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">100</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/prepared-statement-cache-size&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;share-prepared-statements/&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/statement&gt;</td></tr><tr><td style=";">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td><td style=";">&lt;/datasource&gt;</td></tr></tbody></table><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>and under drivers:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>&lt;driver name="postgresql-9.0-801.jdbc4.jar" module="org.postgresql.Driver"/&gt;</p></div><!-- [DocumentBodyEnd:592a6231-d6ec-4404-9248-0e8e67de809b] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-612370" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="https://community.jboss.org/message-abuse!input.jspa?objectID=612370&objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-612370-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-612370-" data-uniquekey="2-612370-" data-ratingtype="like" data-hasvoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="https://community.jboss.org/thread/168644#" id="jive-acclaim-likedlink-2-612370-" class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-612381">
+
+
+        <div id="thread-message-612381" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="612381">
+                <a name="612381"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+
+
+<a href="https://community.jboss.org/people/Juergen.Zimmermann" data-externalid="" data-username="Juergen.Zimmermann" data-avatarid="-1" class="jiveTT-hover-user" onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5878, presence );" onmouseout="quickuserprofile.cancelTooltip();">
+    <img class="jive-avatar" src="./using postgresql driver in as7 JBoss AS 7_files/46.png" border="0" height="46" width="46" alt="Juergen Zimmermann"><span username="Juergen.Zimmermann" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="./using postgresql driver in as7 JBoss AS 7_files/statusicon-51.gif" alt="Master" title="Master"> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="https://community.jboss.org/people/Juergen.Zimmermann" data-externalid="" data-username="Juergen.Zimmermann" data-avatarid="-1" id="jive-5878116399320159430" onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5878, presence );" onmouseout="quickuserprofile.cancelTooltip();" class="jiveTT-hover-user jive-username-link">Juergen Zimmermann</a>                        </div>
+                        <em>538 posts since <br>Jul 28, 2003</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="https://community.jboss.org/message/612381#612381" title="Link to reply #3" class="jive-thread-reply-num font-color-meta-light">3.</a>
+                        <span>Jun 28, 2011 2:25 PM</span>
+                            (<a href="https://community.jboss.org/message/612370#612370" title="Go to message" class="font-color-meta-light ">in response to Oved Ourfali</a>)
+                        </div>
+
+                        <strong>
+                        <a href="https://community.jboss.org/message/612381#612381">Re: using postgresql driver in as7</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:ac392ee4-13f3-4201-bf24-4092e2154c36] --><div class="jive-rendered-content"><p>This is my module.xml:</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;?xml version="1.0" encoding="UTF-8"?&gt;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;module xmlns="urn:jboss:module:1.0" name="org.postgresql"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;resources&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;resource-root path="postgresql.jar"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/resources&gt;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;dependencies&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;module name="javax.api"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;module name="javax.transaction.api"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/dependencies&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/module&gt;</p><p>This is my datasource section</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;datasource jndi-name="java:/swe1DS" pool-name="swe1DS"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;connection-url&gt;jdbc:postgresql:jbossdb&lt;/connection-url&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;driver&gt;postgresql&lt;/driver&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;security&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;user-name&gt;...&lt;/user-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;password&gt;...&lt;/password&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/security&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;pool&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;min-pool-size&gt;1&lt;/min-pool-size&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;max-pool-size&gt;4&lt;/max-pool-size&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/pool&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;validation&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;check-valid-connection-sql&gt;SELECT 1&lt;/check-valid-connection-sql&gt;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/validation&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/datasource&gt;</p><div class="mcePaste" id="_mcePaste" style="position: absolute; top: 0px; left: 0px;">﻿</div><p>...</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;driver name="postgresql" module="org.postgresql"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;xa-datasource-class&gt;org.postgresql.xa.PGXADataSource&lt;/xa-datasource-class&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/driver&gt;</p><p>I defined the XA datasource class because I also had problems before. I don't have the driver class declaration inside the datasource section.</p></div><!-- [DocumentBodyEnd:ac392ee4-13f3-4201-bf24-4092e2154c36] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-612381" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="https://community.jboss.org/message-abuse!input.jspa?objectID=612381&objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-612381-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-612381-" data-uniquekey="2-612381-" data-ratingtype="like" data-hasvoted="false" data-likes="1" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="https://community.jboss.org/thread/168644#" id="jive-acclaim-likedlink-2-612381-" class="font-color-meta jive-acclaim-likedlink">1</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-612559">
+
+
+        <div id="thread-message-612559" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="612559">
+                <a name="612559"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+
+
+<a href="https://community.jboss.org/people/ovedwish" data-externalid="" data-username="ovedwish" data-avatarid="-1" class="jiveTT-hover-user" onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 83281, presence );" onmouseout="quickuserprofile.cancelTooltip();">
+    <img class="jive-avatar" src="./using postgresql driver in as7 JBoss AS 7_files/46.png" border="0" height="46" width="46" alt="Oved Ourfali"><span username="ovedwish" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="./using postgresql driver in as7 JBoss AS 7_files/statusicon-47.gif" alt="Newbie" title="Newbie"> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="https://community.jboss.org/people/ovedwish" data-externalid="" data-username="ovedwish" data-avatarid="-1" id="jive-83281116399337033430" onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 83281, presence );" onmouseout="quickuserprofile.cancelTooltip();" class="jiveTT-hover-user jive-username-link">Oved Ourfali</a>                        </div>
+                        <em>80 posts since <br>Mar 22, 2011</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="https://community.jboss.org/message/612559#612559" title="Link to reply #4" class="jive-thread-reply-num font-color-meta-light">4.</a>
+                        <span>Jun 29, 2011 11:15 AM</span>
+                            (<a href="https://community.jboss.org/message/612381#612381" title="Go to message" class="font-color-meta-light ">in response to Juergen Zimmermann</a>)
+                        </div>
+
+                        <strong>
+                        <a href="https://community.jboss.org/message/612559#612559">Re: using postgresql driver in as7</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:71ab8ae2-1b35-4f6f-b83e-f0a0a61a0190] --><div class="jive-rendered-content"><p>As a module it indeed worked.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&nbsp;</p><p>Thank you,</p><p>Oved</p></div><!-- [DocumentBodyEnd:71ab8ae2-1b35-4f6f-b83e-f0a0a61a0190] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-612559" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="https://community.jboss.org/message-abuse!input.jspa?objectID=612559&objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-612559-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-612559-" data-uniquekey="2-612559-" data-ratingtype="like" data-hasvoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="https://community.jboss.org/thread/168644#" id="jive-acclaim-likedlink-2-612559-" class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    </ul>
+    
+    <!-- END reply -->
+                    
+
+
+
+                <div id="jive-thread-reply-footer" class="clearfix">
+                        <a href="https://community.jboss.org/thread/168644#168644" class="localScroll"><span class="jive-icon-sml jive-icon-arrow-top"></span>Go to original post</a>
+                </div>
+
+
+
+            </div>
+            <!-- END messages -->
+
+    </div>
+    </div>
+    <!-- END main body column -->
+
+    <!-- END main body -->
+
+</div>
+<!-- END main body -->
+
+
+			
+					</div>
+				</div>
+				
+				<div style="clear: both;"></div><!-- Added for STK layout 11/11/11 -->
+			</div>
+			
+			<div style="clear: both;"></div><!-- Added for STK layout 11/11/11 -->
+			
+			
+		  </div><!--end #maincontent-wrapper -->
+
+
+		<div id="site-info"><!-- Added for STK layout 11/11/11 -->
+    <!-- BEGIN footer -->
+
+<!--#if expr='1<0' -->
+<div class="footer">
+   <p>Sponsored by </p>
+   <div id="footerlogo">
+      <a title="Red Hat, Inc." href="http://www.redhat.com/" class="">
+         <h6>Red Hat, Inc.</h6>
+      </a>
+    </div>
+  <p>
+    <a href="http://www.jboss.org/about.html">About</a>   |   
+    <a href="http://www.jboss.org/contact.html">Contact Us</a>   |  
+    <a href="http://www.redhat.com/about/work">Jobs</a>   |   
+    <a href="http://www.jboss.org/help.html">Help</a>
+  </p>
+</div>
+
+  <!-- Eloqua Tracking Scripts -->
+  <script type="text/javascript" language="JavaScript" src="./using postgresql driver in as7 JBoss AS 7_files/elqCfg.js"></script>
+  <script type="text/javascript" language="JavaScript" src="./using postgresql driver in as7 JBoss AS 7_files/elqImg.js"></script>
+  <!-- End eloqua script -->
+
+<!-- SiteCatalyst code version: H.21.
+Copyright 1996-2010 Adobe, Inc. All Rights Reserved
+More info available at http://www.omniture.com -->
+<div id="oTags">
+<!-- // **************************** CHANGE PAT BELOW TO YOUR SERVERS PATH -->
+<script type="text/javascript" src="./using postgresql driver in as7 JBoss AS 7_files/s_code.js"></script>
+
+<script><!--
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+/* E-commerce Variables */
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+
+<script language="JavaScript" type="text/javascript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+
+//--></script><noscript>&lt;a href="http://www.omniture.com" title="Web
+Analytics"&gt;&lt;img src="https://smtrcs.redhat.com/b/ss/redhatjbossorg/1/H.21--NS/0?[AQB]&amp;cdp=3&amp;[AQE]"
+height="1" width="1" border="0" alt="" /&gt;&lt;/a&gt;</noscript>
+
+<!--/DO NOT REMOVE/-->
+</div>
+
+<!-- End SiteCatalyst code version: H.21. -->
+
+<!--#endif -->
+<!--#include virtual="/theme/includes/org_footer2.html" -->
+
+
+
+
+    <!-- END footer -->
+		</div>
+
+		</div><!-- end #wrapper -->
+
+
+<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset">
+	<div class="jive-tooltip2-mid j-mini-modal">
+		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
+	</div>
+<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
+
+<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset">
+	<div class="jive-tooltip2-mid j-mini-modal">
+		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
+	</div>
+<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
+
+<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset">
+	<div class="jive-tooltip2-mid j-mini-modal">
+		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
+	</div>
+<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
+
+
+
+
+    
+
+
+
+
+<script type="text/javascript">
+    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
+    "/spotlight-search.jspa", containerType, containerID);
+
+
+</script>
+
+
+
+
+<script type="text/javascript" src="./using postgresql driver in as7 JBoss AS 7_files/superfish-search-only.js"></script>
+<script type="text/javascript" src="./using postgresql driver in as7 JBoss AS 7_files/tabzilla.js"></script>
+<script type="text/javascript">
+    // initialise Superfish 
+    $j(document).ready(function() {
+        $j('ul.sf-menu').superfish({
+            delay:       300,                             // one second delay on mouseout 
+            animation:   {opacity:'show',height:'show'},  // fade-in and slide-down animation 
+            speed:       'fast',                          // faster animation speed 
+            autoArrows:  false,                           // disable generation of arrow mark-up 
+            dropShadows: false                            // disable drop shadows 
+        }); 
+    });
+</script>
+
+<!-- ShareThis Script -->
+<script type="text/javascript" src="./using postgresql driver in as7 JBoss AS 7_files/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'0c0850b9-23f0-4286-b05a-7593cc190675',tracking:'google'});</script>
+
+
+</div></div><div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer" class="j-mini-modal"><div id="fancybox-inner"></div><a id="fancybox-close"></a><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><iframe id="stSegmentFrame" name="stSegmentFrame" src="./using postgresql driver in as7 JBoss AS 7_files/getSegment.htm" frameborder="0" scrolling="no" width="0px" height="0px" style="display:none;"></iframe><div id="stwrapper" class="stwrapper" style="visibility: hidden; top: -999px; left: -999px;"><div class="stclose"></div><iframe allowtransparency="true" id="stLframe" class="stLframe" name="stLframe" frameborder="0" scrolling="no" width="353px" height="350px" src="./using postgresql driver in as7 JBoss AS 7_files/index.htm" style="top: 0px; left: 0px;"></iframe></div></body></html>
