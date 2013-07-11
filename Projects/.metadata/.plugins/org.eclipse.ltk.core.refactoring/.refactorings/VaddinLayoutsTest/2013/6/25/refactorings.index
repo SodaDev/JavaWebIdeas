@@ -1,0 +1,34 @@
+1371657477773	Delete element
+1371674381307	Delete element
+1371674394126	Delete element
+1371675013511	Delete element
+1371675051159	Delete element
+1371676662253	Delete element
+1371905773157	Delete element
+1371906173091	Delete element
+1371907466607	Delete element
+1371913442309	Delete element
+1371935370565	Rename field 'signin'
+1371936285041	Rename local variable 'cmd'
+1371936434059	Rename local variable 'next'
+1371936817017	Delete element
+1371940085150	Rename local variable 'b'
+1371982658918	Rename package 'com.vaadin.demo.dashboard'
+1371982677662	Rename package 'com.vaadin.demo.dashboard'
+1371983296710	Rename package 'com.vaadin.demo.dashboard.views'
+1371983314680	Rename package 'com.vaadin.demo.dashboard.widgetset'
+1371983511546	Rename package 'pl.skeleton.dashboard'
+1371983558470	Rename package 'pl.skeleton.dashboard.widgetset'
+1371983638297	Move compilation unit
+1371983934152	Delete element
+1371984063021	Delete element
+1371984075526	Rename package 'pl.skeleton.dashboard.views'
+1371984103252	Move compilation units
+1371984492787	Move 1 resources to 'ui'
+1371988602107	Rename method 'showNotifications'
+1371994788630	Copy files
+1371994836597	Copy folder
+1371994850290	Move folder
+1371994865366	Move 1 resources to 'VaddinLayoutsTest'
+1371994907780	Copy folder
+1371995274479	Copy files

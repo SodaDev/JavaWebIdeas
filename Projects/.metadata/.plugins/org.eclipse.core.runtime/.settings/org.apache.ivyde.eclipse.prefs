@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+retrievedClasspath.pattern=lib/[type]s/[artifact]-[revision].[ext]
+retrievedClasspath.types=*

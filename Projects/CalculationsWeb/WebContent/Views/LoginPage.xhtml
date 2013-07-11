@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+<h:head>
+  <f:facet name="first">
+    <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+  	<title>ScadaWeb - </title>
+  </f:facet>
+  <style type="text/css">
+	.ui-widget, .ui-widget .ui-widget {
+		font-size: 90% !important;
+	}
+	
+	.loginButton {
+		font-size: 75% !important;
+	}
+  </style>
+</h:head>
+<h:body>
+<h:form>
+<p:growl id="growl" showDetail="true" life="5000"/> 
+<div style="height: 25%; padding-top: 15%">
+	<div style="width: 15%; padding-left: 41%;">
+    <p:panel header="Enter your login and password" id="panel" style="width: 100%">  
+        <h:panelGrid columns="2">  
+        <h:outputLabel value="Login: " style="color: white;"/>
+        	<p:inputText value="#{user.name}" required="true" label="Login" style="width: 100%"/>    
+        <h:outputLabel value="Password: " style="color: white;"/>
+        	<p:password value="#{user.password}" required="true" label="Password" style="width: 100%"/>   
+        </h:panelGrid>
+        <div>
+        	<div style="width: 40%; margin-right: 0px;" class="loginButton">
+	        	<p:commandButton value="Log in!" update="growl"  
+	             	action="#{user.checkPassword}" styleClass="ui-priority-primary" ajax="false"/>
+	        </div>
+        	<div style="text-align: right;" class="loginButton">
+        		 <p:commandButton id="registerDialogButton" value="Register" onclick="registerDlg.show();" type="button"/>
+        	</div> 
+        </div>
+    </p:panel>
+    </div> 
+</div>
+</h:form>
+ 
+                    
+</h:body>
+</f:view>
+</html>

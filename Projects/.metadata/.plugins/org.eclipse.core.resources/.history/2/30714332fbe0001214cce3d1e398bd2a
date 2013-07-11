@@ -1,0 +1,147 @@
+package pl.skeleton.ui.views;
+
+import pl.calculations.factory.Factory;
+import pl.skeleton.ui.DashboardUI;
+import pl.skeleton.ui.HelpManager;
+import pl.skeleton.ui.HelpOverlay;
+
+import com.vaadin.event.ShortcutAction.KeyCode;
+import com.vaadin.event.ShortcutListener;
+import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
+
+public class LoginForm extends VerticalLayout{
+	private static final long serialVersionUID = -5461376260684882201L;
+	private CssLayout loginPanel = new CssLayout();
+	private HelpManager helpManager = new HelpManager(UI.getCurrent());
+	private TextField username;
+	private PasswordField password;
+	private Button btnSignIn;
+	private Button btnRegister;
+	
+	private ShortcutListener enter;
+	
+	
+	public LoginForm() {
+		createView();
+		Factory.getInstance().createUser("smallklebuszka", "kicia", "maj", "smallklebuszka@gmail.com", "1111111", "kicia");
+	}
+	
+	private void createView() {
+		showApplicationInformation();
+		
+		setSizeFull();
+	    addStyleName("login-layout");
+	    loginPanel.addStyleName("login-panel");
+	
+	    HorizontalLayout labels = new HorizontalLayout();
+	    labels.setWidth("100%");
+	    labels.setMargin(true);
+	    labels.addStyleName("labels");
+	    loginPanel.addComponent(labels);
+	
+	    Label welcome = new Label("Welcome");
+	    welcome.setSizeUndefined();
+	    welcome.addStyleName("h4");
+	    labels.addComponent(welcome);
+	    labels.setComponentAlignment(welcome, Alignment.MIDDLE_LEFT);
+	
+	    Label title = new Label("Skeleton Dashboard");
+	    title.setSizeUndefined();
+	    title.addStyleName("h2");
+	    title.addStyleName("light");
+	    labels.addComponent(title);
+	    labels.setComponentAlignment(title, Alignment.MIDDLE_RIGHT);
+	
+	    HorizontalLayout fields = new HorizontalLayout();
+	    fields.setSpacing(true);
+	    fields.setMargin(true);
+	    fields.addStyleName("fields");
+	
+	    username = new TextField("Username");
+	    username.focus();
+	    fields.addComponent(username);
+	
+	    password = new PasswordField("Password");
+	    fields.addComponent(password);
+	
+	    btnSignIn = new Button("Sign In");
+	    btnSignIn.addStyleName("default");
+	    fields.addComponent(btnSignIn);
+	    fields.setComponentAlignment(btnSignIn, Alignment.BOTTOM_LEFT);
+	    
+	    btnRegister = new Button("Register");
+	    btnRegister.addStyleName("default");
+	    fields.addComponent(btnRegister);
+	    fields.setComponentAlignment(btnRegister, Alignment.BOTTOM_LEFT);
+	    
+	    setupSignInButton();
+	
+	    loginPanel.addComponent(fields);
+	
+	    this.addComponent(loginPanel);
+	    this.setComponentAlignment(loginPanel, Alignment.MIDDLE_CENTER);
+	}
+
+	private void setupSignInButton() {
+		setSignInAction();
+	    btnSignIn.addClickListener(new ClickListener() {
+			private static final long serialVersionUID = 1L;
+
+			@Override
+	        public void buttonClick(ClickEvent event) {
+	            if (username.getValue() != null && username.getValue().equals("") && password.getValue() != null && password.getValue().equals("")) {
+		            helpManager.closeAll();
+	                btnSignIn.removeShortcutListener(enter);
+	                ((DashboardUI)UI.getCurrent()).buildMainView();
+	            } else {
+	                if (loginPanel.getComponentCount() > 2) {
+	                    // Remove the previous error message
+	                    loginPanel.removeComponent(loginPanel.getComponent(2));
+	                }
+	                // Add new error message
+	                Label error = new Label("Wrong username or password. <span>Hint: try empty values</span>", ContentMode.HTML);
+	                error.addStyleName("error");
+	                error.setSizeUndefined();
+	                error.addStyleName("light");
+	                // Add animation
+	                error.addStyleName("v-animate-reveal");
+	                loginPanel.addComponent(error);
+	                username.focus();
+	            }
+	        }
+	    });
+	    btnSignIn.addShortcutListener(enter);
+	}
+
+	private void showApplicationInformation() {
+		helpManager.closeAll();
+        HelpOverlay w = helpManager.addOverlay(
+                        "Welcome to the Skeleton Application",
+                        "<p>This is skeleton application - create your own web application on this base</p>",
+                        "login");
+        w.center();
+        UI.getCurrent().addWindow(w);
+	}
+	
+	private void setSignInAction() {
+		enter = new ShortcutListener("Sign In",KeyCode.ENTER, null) {
+				private static final long serialVersionUID = 1L;
+
+				@Override
+		        public void handleAction(Object sender, Object target) {
+		            btnSignIn.click();
+		        }
+		    };
+	}
+}

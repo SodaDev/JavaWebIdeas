@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="CalculationsEar">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="ManagerCalculations.jar" deploy-path="/" handle="module:/resource/ManagerCalculations/ManagerCalculations">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SystemCalculations.jar" deploy-path="/" handle="module:/resource/SystemCalculations/SystemCalculations">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ManagerUsers.jar" deploy-path="/" handle="module:/resource/ManagerUsers/ManagerUsers">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CalculationsVaadinWeb.war" deploy-path="/" handle="module:/resource/CalculationsVaadinWeb/CalculationsVaadinWeb">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

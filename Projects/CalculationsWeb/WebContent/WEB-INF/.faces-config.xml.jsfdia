@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#WEB-INF#Views#LoginPage.xhtml"
+  PATH="/WEB-INF/Views/LoginPage.xhtml" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#WEB-INF#Views#LoginPage.xhtml:0" NAME="item"
+   PATH="/WEB-INF/Views/LoginPage.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="true:#{user.checkPassword}:#WEB-INF#Views#Workbench.xhtml"
+    NAME="output" PATH="/WEB-INF/Views/Workbench.xhtml"
+    TARGET="rules:#WEB-INF#Views#Workbench.xhtml"
+    TITLE="#{user.checkPassword}:true" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="false:#{user.checkPassword}:#WEB-INF#Views#LoginPage.xhtml"
+    NAME="output1" PATH="/WEB-INF/Views/LoginPage.xhtml"
+    TARGET="rules:#WEB-INF#Views#LoginPage.xhtml"
+    TITLE="#{user.checkPassword}:false" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#WEB-INF#Views#Workbench.xhtml"
+  PATH="/WEB-INF/Views/Workbench.xhtml" SHAPE="32,241,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>
