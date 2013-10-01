@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_45">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre6">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
@@ -19,7 +19,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=CalculationsVaadinWeb&amp;ivyXmlPath=ivy.xml&amp;confs=widgetset-compile&amp;ivySettingsPath=%24%7Bworkspace_loc%3ACalculationsVaadinWeb%2Fivysettings.xml%7D&amp;loadSettingsOnDemand=false&amp;propertyFiles="/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/dcharts-1.6.0.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/SystemCalculations"/>
+	<classpathentry kind="con" path="org.apache.ivyde.eclipse.cpcontainer.IVYDE_CONTAINER/?project=CalculationsVaadinWeb&amp;ivyXmlPath=ivy.xml&amp;confs=nodeploy"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

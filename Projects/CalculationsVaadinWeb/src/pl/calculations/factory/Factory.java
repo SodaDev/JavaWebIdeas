@@ -1,11 +1,10 @@
 package pl.calculations.factory;
 
-import java.util.List;
-
 import javax.naming.NamingException;
 
-import pl.calculations.DO.DeviceDO;
 import pl.calculations.system.facade.ISystemCalculationsRemote;
+import pl.skeleton.transferObjects.UserMO;
+import pl.soda.generalPurposeObjects.OperationResult;
 
 public class Factory {
 	private static Factory instance = new Factory();
@@ -26,14 +25,12 @@ public class Factory {
 	}
 	
 	public boolean checkUserLoginAndPassword(String login, String password){
+		if(login == null || login.isEmpty() || password == null || password.isEmpty())
+			return false;
 		return getSystemCalculations().checkUserLoginAndPassword(login, password);
 	}
 	
-	public boolean createUser(String login, String name, String surname, String eMail, String cellPhone, String pass) {
-		return getSystemCalculations().createUser(login, name, surname, eMail, cellPhone, pass);
-	}
-	
-	public List<DeviceDO> findAllDevices() {
-		return getSystemCalculations().findAllDevices();
+	public OperationResult<Boolean> createUser(UserMO userMO) {
+		return getSystemCalculations().createUser(userMO.getModel());
 	}
 }

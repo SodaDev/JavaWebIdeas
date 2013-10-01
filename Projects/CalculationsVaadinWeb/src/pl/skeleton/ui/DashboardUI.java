@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Locale;
 
 import pl.skeleton.ui.views.DashboardView;
-import pl.skeleton.ui.views.LoginForm;
+import pl.skeleton.ui.views.LoginView;
 import pl.skeleton.ui.views.MathProblemsView;
 import pl.skeleton.ui.views.ReportsView;
 import pl.skeleton.ui.views.SalesView;
@@ -29,17 +29,14 @@ public class DashboardUI extends UI {
     private static final long serialVersionUID = 1L;
 
     CssLayout root = new CssLayout();
-    LoginForm loginLayout;
+    LoginView loginLayout;
     SidebarView sidebar;
     CssLayout content = new CssLayout();
     private Navigator nav;
-    private HelpManager helpManager;
     HashMap<String, Class<? extends View>> routes = createMenuViewsMap();
 
     @Override
     protected void init(VaadinRequest request) {
-        helpManager = new HelpManager(this);
-
         setLocale(Locale.US);
 
         setContent(root);
@@ -75,7 +72,7 @@ public class DashboardUI extends UI {
         }
         addStyleName("login");
 
-        loginLayout = new LoginForm();
+        loginLayout = new LoginView();
         root.addComponent(loginLayout);
     }
 
@@ -121,14 +118,13 @@ public class DashboardUI extends UI {
 
 			@Override
             public boolean beforeViewChange(ViewChangeEvent event) {
-                helpManager.closeAll();
+                HelpManager.closeAll();
                 return true;
             }
 
             @Override
             public void afterViewChange(ViewChangeEvent event) {
-                View newView = event.getNewView();
-                helpManager.showHelpFor(newView);
+//                View newView = event.getNewView();
             }
         });
 	}
@@ -138,10 +134,6 @@ public class DashboardUI extends UI {
 		// TODO Auto-generated method stub
 		
 	}
-
-	public HelpManager getHelpManager() {
-        return helpManager;
-    }
 
     public SidebarView getSidebarView() {
     	return sidebar;

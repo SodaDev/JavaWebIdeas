@@ -64,7 +64,10 @@ public class ReportsView extends HorizontalLayout implements View {
 	private static final long serialVersionUID = 8430971506181357670L;
 	public static final String VIEW_NAME = "ReportsView";
     private TabSheet editors;
-
+    private CssLayout paletteLayout;
+    private int draftCount = 1;
+    boolean helpShown = false;
+    
     @Override
     public void enter(ViewChangeEvent event) {
         setSizeFull();
@@ -193,12 +196,9 @@ public class ReportsView extends HorizontalLayout implements View {
 
         CssLayout draftThumb = new CssLayout();
         draftThumb.addStyleName("draft-thumb");
-        Image draft = new Image(null, new ThemeResource(
-                "img/draft-report-thumb.png"));
+        Image draft = new Image(null, new ThemeResource("img/draft-report-thumb.png"));
         draftThumb.addComponent(draft);
-        Label draftTitle = new Label(
-                "Monthly revenue<br><span>Last modified 1 day ago</span>",
-                ContentMode.HTML);
+        Label draftTitle = new Label("Monthly revenue<br><span>Last modified 1 day ago</span>",ContentMode.HTML);
         draftTitle.setSizeUndefined();
         draftThumb.addComponent(draftTitle);
         drafts.addComponent(draftThumb);
@@ -243,9 +243,6 @@ public class ReportsView extends HorizontalLayout implements View {
         createBox.setComponentAlignment(create, Alignment.MIDDLE_CENTER);
         drafts.addComponent(createBox);
         create.addClickListener(new ClickListener() {
-            /**
-			 * 
-			 */
 			private static final long serialVersionUID = -5913769189462021275L;
 
 			@Override
@@ -257,24 +254,16 @@ public class ReportsView extends HorizontalLayout implements View {
         return editors;
     }
 
-    private CssLayout paletteLayout;
-
-    private int draftCount = 1;
-
-    boolean helpShown = false;
-
     private HorizontalLayout createEditorInstance(int which,
             Transferable items, Table table) {
 
         if (!helpShown) {
             helpShown = true;
-            HelpManager helpManager = ((DashboardUI) getUI()).getHelpManager();
-            helpManager.addOverlay("Palette",
+            HelpManager.createOverlay("Palette",
                     "Drag the items from the palette onto the canvas",
                     "palette");
-            helpManager.addOverlay("Re-order",
-                    "Drag the items on the canvas to re-order them", "reorder")
-                    .center();
+            HelpManager.createOverlay("Re-order",
+                    "Drag the items on the canvas to re-order them", "reorder");
         }
 
         HorizontalLayout editor = new HorizontalLayout();
@@ -473,10 +462,6 @@ public class ReportsView extends HorizontalLayout implements View {
                 final DragAndDropWrapper placeholder = new DragAndDropWrapper(l);
                 placeholder.addStyleName("placeholder");
                 placeholder.setDropHandler(new DropHandler() {
-
-                    /**
-					 * 
-					 */
 					private static final long serialVersionUID = -2562674451781823385L;
 
 					@Override
@@ -570,9 +555,6 @@ public class ReportsView extends HorizontalLayout implements View {
                 save.addStyleName("default");
                 save.addStyleName("small");
                 save.addClickListener(new ClickListener() {
-                    /**
-					 * 
-					 */
 					private static final long serialVersionUID = -4752290584210247626L;
 
 					@Override
@@ -605,9 +587,6 @@ public class ReportsView extends HorizontalLayout implements View {
                 return l;
             } else if (caption.equals("grid")) {
                 Table t = new Table() {
-                    /**
-					 * 
-					 */
 					private static final long serialVersionUID = -274208570325295607L;
 
 					@Override

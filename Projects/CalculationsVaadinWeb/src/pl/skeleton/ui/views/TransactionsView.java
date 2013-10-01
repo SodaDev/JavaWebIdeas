@@ -48,14 +48,10 @@ public class TransactionsView extends VerticalLayout implements View {
 	    Axes axes = new Axes().addAxis(new XYaxis()
 							    			.setRenderer(AxisRenderers.DATE)
 							    			.setTickOptions(
-							    				new AxisTickRenderer()
-							    					.setFormatString("%#m/%#d/%y"))
-							    					.setNumberTicks(4))
-						    	.addAxis(
-						    		new XYaxis(XYaxes.Y)
-						    			.setTickOptions(
-						    				new AxisTickRenderer()
-						    					.setFormatString("$%.2f")));
+							    				new AxisTickRenderer().setFormatString("%#m/%#d/%y")).setNumberTicks(4))
+						      .addAxis(new XYaxis(XYaxes.Y)
+						    				.setTickOptions(
+						    						new AxisTickRenderer().setFormatString("$%.2f")));
 	
 	    Highlighter highlighter = new Highlighter()
 	    	.setShow(true)
@@ -65,8 +61,8 @@ public class TransactionsView extends VerticalLayout implements View {
 	    	.setTooltipFormatString("<b><i><span style='color:red;'>hello</span></i></b> %.2f")
 	    	.setUseAxesFormatters(false);
 	
-	    Cursor cursor = new Cursor()
-	    	.setShow(true);
+	    Cursor cursor = new Cursor().setShow(true);
+	    	cursor.setZoom(true);
 	
 	    Options options = new Options()
 	    	.addOption(seriesDefaults)
@@ -74,7 +70,7 @@ public class TransactionsView extends VerticalLayout implements View {
 	    	.addOption(highlighter)
 	    	.addOption(cursor);
 	
-	    DCharts chart = new DCharts().setDataSeries(dataSeries).setOptions(options) .show();
+	    DCharts chart = new DCharts().setDataSeries(dataSeries).setOptions(options).show();
 	    
 	    addComponent(chart);
     }
