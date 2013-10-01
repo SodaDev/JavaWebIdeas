@@ -3,10 +3,10 @@
 	<name>CalculationsEar</name>
 	<comment></comment>
 	<projects>
-		<project>ManagerCalculations</project>
-		<project>SystemCalculations</project>
-		<project>ManagerUsers</project>
 		<project>CalculationsVaadinWeb</project>
+		<project>ManagerUsers</project>
+		<project>SystemCalculations</project>
+		<project>ManagerCalculations</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
