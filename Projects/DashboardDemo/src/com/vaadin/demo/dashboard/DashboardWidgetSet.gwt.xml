@@ -31,4 +31,6 @@
     <inherits name="com.vaadin.addon.timeline.gwt.TimelineWidgetSet" />
 
     <inherits name="com.vaadin.demo.dashboard.widgetset.VaddinlayoutstestWidgetset" />
+    
+    <inherits name="org.dussan.vaadin.dcharts.DchartsWidgetset" />
 </module>

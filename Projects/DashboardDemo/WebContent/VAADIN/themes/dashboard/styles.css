@@ -1084,10 +1084,6 @@ body .dashboard.v-app-loading {
 	height: 100%;
 }
 
-.dashboard .v-horizontal > .v-expand > .v-slot {
-	position: relative;
-}
-
 .dashboard .v-vertical > .v-spacing, .dashboard .v-vertical > .v-expand > .v-spacing {
 	width: 0;
 	display: block;

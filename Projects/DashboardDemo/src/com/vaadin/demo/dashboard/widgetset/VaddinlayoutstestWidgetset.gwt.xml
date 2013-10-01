@@ -48,4 +48,6 @@
     <inherits name="com.vaadin.addon.calendar.gwt.CalendarWidgetset" />
 
     <inherits name="com.vaadin.demo.dashboard.DashboardWidgetSet" />
+
+    <inherits name="org.dussan.vaadin.dcharts.DchartsWidgetset" />
 </module>

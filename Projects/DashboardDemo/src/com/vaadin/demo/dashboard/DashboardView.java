@@ -12,6 +12,14 @@ package com.vaadin.demo.dashboard;
 
 import java.text.DecimalFormat;
 
+import org.dussan.vaadin.dcharts.DCharts;
+import org.dussan.vaadin.dcharts.data.DataSeries;
+import org.dussan.vaadin.dcharts.events.click.ChartDataClickEvent;
+import org.dussan.vaadin.dcharts.events.click.ChartDataClickHandler;
+import org.dussan.vaadin.dcharts.events.rightclick.ChartDataRightClickEvent;
+import org.dussan.vaadin.dcharts.events.rightclick.ChartDataRightClickHandler;
+import org.dussan.vaadin.dcharts.options.Options;
+
 import com.vaadin.data.Property;
 import com.vaadin.demo.dashboard.data.DataProvider;
 import com.vaadin.demo.dashboard.data.Generator;
@@ -185,6 +193,8 @@ public class DashboardView extends VerticalLayout implements View {
         panel.addStyleName("notes");
         row.addComponent(panel);
 
+        row.addComponent(getExample().show());
+        
         row = new HorizontalLayout();
         row.setMargin(true);
         row.setSizeFull();
@@ -287,4 +297,31 @@ public class DashboardView extends VerticalLayout implements View {
         l.addComponent(label);
     }
 
+    private DCharts getExample(){
+		DCharts chart = new DCharts();
+
+		chart.setEnableChartDataClickEvent(true);
+		chart.setEnableChartDataRightClickEvent(true);
+
+		chart.addHandler(new ChartDataClickHandler() {
+			@Override
+			public void onChartDataClick(ChartDataClickEvent event) {
+				Notification.show("CHART DATA CLICK");
+			}
+		});
+
+		chart.addHandler(new ChartDataRightClickHandler() {
+			@Override
+			public void onChartDataRightClick(ChartDataRightClickEvent event) {
+				Notification.show("CHART DATA RIGHT CLICK");
+			}
+		});
+
+		chart.setOptions(new Options().setCaptureRightClick(true));
+		chart.setDataSeries(
+			new DataSeries()
+				.add(3, 7, 9, 1, 4, 6, 8, 2, 5))
+			.show();
+		return chart;
+	}
 }

@@ -3,6 +3,8 @@ package com.vaadin.demo.dashboard;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.dussan.vaadin.dcharts.DCharts;
+
 import com.google.gwt.core.ext.typeinfo.JClassType;
 import com.vaadin.client.ui.button.ButtonConnector;
 import com.vaadin.client.ui.csslayout.CssLayoutConnector;
@@ -31,6 +33,7 @@ public class OptimizedConnectorBundleLoaderFactory extends
         eagerConnectors.add(PanelConnector.class.getName());
         eagerConnectors.add(LabelConnector.class.getName());
         eagerConnectors.add(WindowConnector.class.getName());
+        eagerConnectors.add(DCharts.class.getName());
     }
 
     @Override

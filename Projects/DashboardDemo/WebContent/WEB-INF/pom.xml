@@ -21,6 +21,10 @@
 			</snapshots>
 		</repository>
 		<repository>
+		   <id>vaadin-addons</id>
+		   <url>http://maven.vaadin.com/vaadin-addons</url>
+		</repository>
+		<repository>
 			<id>sonatype vaadin</id>
 			<url>https://oss.sonatype.org/content/repositories/vaadin/</url>
 		</repository>
@@ -101,6 +105,11 @@
 			<groupId>com.vaadin.addon</groupId>
 			<artifactId>vaadin-charts</artifactId>
 			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+		   <groupId>org.vaadin.addons</groupId>
+		   <artifactId>dcharts-widget</artifactId>
+		   <version>1.7.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.vaadin.addons</groupId>
