@@ -13,8 +13,12 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @NamedQueries({
-	@NamedQuery(name= User.findUserByLogin,
-				query = "SELECT u FROM User u WHERE u.login = :p_login AND u.password = :p_password")
+	@NamedQuery(name= User.verifyUserByLoginAndPassword,
+				query = "SELECT u FROM User u WHERE u.login = :p_login AND u.password = :p_password"),
+	@NamedQuery(name = User.findUserByEMail,
+				query = "SELECT u FROM User u Where u.eMail = :p_eMail"),
+	@NamedQuery(name = User.findUserByLogin,
+				query = "SELECT u FROM User u Where u.login = :p_login")
 })
 @Table(name = "users", schema="public")
 @SequenceGenerator(name = "USERS_ID_SEQ", sequenceName="users_id_seq", initialValue=1, allocationSize=20)
@@ -22,7 +26,9 @@ import javax.persistence.Table;
 public class User implements Serializable{
 	private static final long serialVersionUID = -5055907804462622655L;
 	
+	public static final String verifyUserByLoginAndPassword = "User.findUserByLoginAndPassword";
 	public static final String findUserByLogin = "User.findUserByLogin";
+	public static final String findUserByEMail = "User.findUserByEMail";
 	
 	private int id;
 	private String login;

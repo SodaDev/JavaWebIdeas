@@ -2,11 +2,14 @@ package dev.security.facade;
 
 import javax.ejb.Remote;
 
+import pl.soda.generalPurposeObjects.OperationResult;
 import dev.security.entities.User;
 
 @Remote
 public interface IManagerSecurityRemote {
 	public User findUser(int id);
+	public User findUserByLogin(String login);
+	public User findUserByEMail(String eMail);
 	public boolean checkUserLoginAndPassword(String login, String password);
-	boolean createUser(String login, String name, String surname, String eMail, String cellPhone, String pass);
+	public OperationResult<Boolean> createUser(User newUser);
 }
